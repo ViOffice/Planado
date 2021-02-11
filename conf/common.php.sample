@@ -1,0 +1,17 @@
+<?php
+
+// Supported Language
+define('supported_languages', ['en', 'de']);
+
+// MySQL / MariaDB
+$sqlhost=""; // may be "localhost" or some ip
+$sqluser=""; // username for MariaDB, ex "planado"
+$sqlpass=""; // generate ex via "date +%s | sha1sum"
+$sqlname=""; // DB name, ex planadodb
+$sqltabl=""; // DB table, ex conferences
+
+// Domains
+$jdomain=""; // jitsi domain, ex meet.jit.si
+$idomain=""; // planado domain, ex planado.example.com
+
+?>

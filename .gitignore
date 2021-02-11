@@ -1,0 +1,6 @@
+conf/common.php
+conf/i18n.php
+static/css/custom.css
+static/js/custom.js
+static/fonts/*
+static/img/bg.jpg

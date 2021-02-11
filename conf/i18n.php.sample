@@ -1,0 +1,47 @@
+<?php
+
+if ($lang == "de") {
+    // index.php
+    $indh1="Planado: Jitsi Raum buchen";
+    $indh2="Oder sofort einen Raum starten";
+    $indt1="Konferenzname";
+    $indt2="Datum";
+    $indt3="Uhrzeit";
+    $indb1="Raum buchen";
+    $indb2="Raum öffnen";
+    // inv.php
+    $waith="Die Konferenz hat noch nicht begonnen";
+    $waitt="Bitte haben Sie Geduld. Sie werden automatisch weitergeleitet, sobald die Konferenz startet.";
+    $noidh="Bitte geben Sie Ihre Einladungsnummer ein";
+    // booking.php
+    $headl="Sie haben einen Konferenzraum gebucht";
+    $list1="Konferenzname: ";
+    $list2="Datum: ";
+    $list3="Uhrzeit: ";
+    $list4="Konferenzraum: ";
+    $list5="Kalenderevent: ";
+    $admin="Achtung: Der Konferenzraum ist erst ab der spezifizierten Zeit aufrufbar. Administrator:innen können ihn bereits zuvor über den Admin-Zugang betreten: ";
+} else {
+    // index.php
+    $indh1="Planado: book Jitsi room";
+    $indh2="Or start a room immediately";
+    $indt1="Name of Conference";
+    $indt2="Date";
+    $indt3="Time";
+    $indb1="Book room";
+    $indb2="Start room";
+    // inv.php
+    $waith="The conference has not started yet";
+    $waitt="Please be patient. You will be redirected automatically, as soon as the conference starts.";
+    $noidh="Please provide your Invite-Number";
+    // booking.php
+    $headl="You booked a conference room";
+    $list1="Name of Conference: ";
+    $list2="Date: ";
+    $list3="Time: ";
+    $list4="Conference Room: ";
+    $list5="Calendar-Event: ";
+    $admin="Attention: The conference room is unavailable before the specified time. Administrators may enter before that via the admin-access: ";
+}
+
+?>
