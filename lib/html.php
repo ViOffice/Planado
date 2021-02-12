@@ -1,4 +1,8 @@
 <?php
+// SPDX-FileCopyrightText: 2021 Weymeirsch und Langer GbR
+//
+// SPDX-License-Identifier: AGPL-3.0-only
+
 function build_html($content) {
 
     // Define common HTML ------------------------------------------------------- //

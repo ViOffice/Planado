@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Planado
+Upstream-Contact: Jan Weymeirsch <dev@vioffice.de>
+Source: https://codeberg.org/ViOffice/Planado
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...

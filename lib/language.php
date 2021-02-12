@@ -1,7 +1,7 @@
 <?php
+// SPDX-FileCopyrightText: 2021 Weymeirsch und Langer GbR
 //
-// Src: https://stackoverflow.com/a/64424827
-
+// SPDX-License-Identifier: AGPL-3.0-only
 
 // Define language function
 function detect_language() {

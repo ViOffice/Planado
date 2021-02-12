@@ -1,4 +1,7 @@
 <?php
+// SPDX-FileCopyrightText: 2021 Weymeirsch und Langer GbR
+//
+// SPDX-License-Identifier: AGPL-3.0-only
 
 // read input
 $name=$_GET['name'];

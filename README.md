@@ -65,16 +65,16 @@ curl http://localhost/planado/misc/tests.php?tests=all
 ## Maintainers
 
 * [Jan Weymeirsch](https://jan.weymeirs.ch)
-    * Contact: [dev AT vioffice.de](mailto:dev<AT>vioffice<DOT>de)
+    * Contact: [dev<AT>vioffice<DOT>de](mailto:dev<AT>vioffice<DOT>de)
 
 ## Contribute
 
 Any pull requests or suggestions are welcome on the main repository at <https://codeberg.org/ViOffice/Planado>, the Github-Mirror at <https://github.com/ViOffice/Planado> or via [e-mail to the maintainers](#maintainers).
 
-Please make sure, your changes are [REUSE-compliant](https://github.com/fsfe/reuse-tool)
+Please make sure, your changes are [REUSE-compliant](https://git.fsfe.org/reuse/tool)
 
 ## License
 
 Copyright (C) 2021 [Weymeirsch und langer GbR](mailto:info<AT>vioffice<DOT>de)
 
-See Licenses [here](/LICENSES).
+See Licenses [here](src/branch/main/LICENSES).
