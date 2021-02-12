@@ -59,6 +59,8 @@ cp static/img/waiting.gif.sample static/img/waiting.gif
 php misc/create_db.php
 ```
 
+*Note: The `create_db.php` may create the database and db-table, but you still need to configure the user and their access to the database manually.*
+
 5. Deploy Planado to your webroot:
 
 ```
