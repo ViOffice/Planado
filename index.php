@@ -23,11 +23,11 @@ $html_content="<h1>" . $indh1 . "</h1>
                    <input type='date' id='date' name='date'><br><br>
                    <label for='time'><strong>" . $indt3 . "</strong></label><br>
                    <input type='time' id='time' name='time'><br><br>
-                   <input type='submit' value='" . $indb1 . "'>
+                   <input class='button' type='submit' value='" . $indb1 . "'>
                  </form> 
                  <h2>" . $indh2 ."</h2>
                  <a href=https://" . $jdomain . ">
-                   <input type='submit' value='" . $indb2 . "'>
+                   <input class='button' type='submit' value='" . $indb2 . "'>
                  </a><br><br>
              </div>";
 build_html($html_content);

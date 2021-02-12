@@ -2,7 +2,7 @@
 :root {
     --primary: #0069d9;
     --primarya: #0069d9DD;
-    --secondary: #fffffff;
+    --secondary: #ffffff;
     --secondarya: #ffffffBB;
     --tertiary: #333333;
     --tertiarya: #333333BB;
@@ -11,15 +11,14 @@
     --cont-font: Times, serif;
 }
 
-html, body {
-    background-color: var(--primary);
+html {
     color: var(--secondary);
     margin: 0;
     height: 100%;
     background-repeat: no-repeat !important;
     background-size: auto 300% !important;
     background-position: center !important;
-    background: var(--primarya) url('static/img/bg.jpg');
+    background: var(--primarya) url('/static/img/bg.jpg');
     background-blend-mode: multiply;
     font-family: var(--cont-font);
 }
@@ -74,4 +73,23 @@ a.highlight {
 a:hover.highlight {
     background: var(--secondary);
     color: var(--primary);
+}
+
+.button {
+    color: var(--secondary);
+    background-color: var(--primary);
+    border: 2px solid var(--secondary);
+    border-radius: 6px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 2px 2px 4px #00000099;
+    transition-duration: .4s
+}
+
+.button:hover {
+    color: var(--primary);
+    background-color: var(--secondary);
 }
