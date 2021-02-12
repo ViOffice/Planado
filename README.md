@@ -48,6 +48,11 @@ cp conf/i18n.php.sample conf/i18n.php
 * Custom images: `static/img/background.jpg` & `static/img/waiting.gif`
 * Custom fonts: `static/img/fonts/` (also add to your CSS)
 
+```
+cp static/img/bg.jpg.sample static/img/bg.jpg
+cp static/img/waiting.gif.sample static/img/waiting.gif
+```
+
 4. Create the database according to your configurations either manually or via the `create_db.php` script:
 
 ```
@@ -65,7 +70,7 @@ curl http://localhost/planado/misc/tests.php?tests=all
 ## Maintainers
 
 * [Jan Weymeirsch](https://jan.weymeirs.ch)
-    * Contact: [dev<AT>vioffice<DOT>de](mailto:dev<AT>vioffice<DOT>de)
+    * Contact: [dev-AT-vioffice-DOT-de](mailto:dev<AT>vioffice<DOT>de)
 
 ## Contribute
 
