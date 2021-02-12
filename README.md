@@ -75,6 +75,6 @@ Please make sure, your changes are [REUSE-compliant](https://git.fsfe.org/reuse/
 
 ## License
 
-Copyright (C) 2021 [Weymeirsch und langer GbR](mailto:info<AT>vioffice<DOT>de)
+Copyright (C) 2021 [Weymeirsch und Langer GbR](mailto:info<AT>vioffice<DOT>de)
 
 See Licenses [here](src/branch/main/LICENSES).
