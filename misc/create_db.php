@@ -6,18 +6,27 @@
 // Load required configs
 include('conf/common.php');
 
+// Connect to MySQL/MariaDB
+$sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass);
+// Check connection
+if ($sqlcon->connect_error) {
+    die("Connection failed: " . $sqlcon->connect_error);
+} 
+
 // Create database
 $sqlque = "CREATE DATABASE " . $sqlname . "";
 if ($sqlcon->query($sqlque) === TRUE) {
-  echo "Database created successfully\n";
+    echo "Database created successfully\n";
 } else {
-  echo "Error creating database: " . $sqlcon->error;
+    die("Error creating database: " . $sqlcon->error);
 }
+
+$sqlcon->close();
 
 // connect to database
 $sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass, $sqlname);
 if ($sqlcon->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // Create Table
@@ -28,9 +37,9 @@ $sqlque = "CREATE TABLE " . $sqltabl . " (
              time BIGINT)";
 
 if ($sqlcon->query($sqlque) === TRUE) {
-  echo "Table created successfully";
+    echo "Table created successfully\n";
 } else {
-  die("Error creating table: " . $sqlcon->error);
+    die("Error creating table: " . $sqlcon->error);
 }
 
 $sqlcon->close();
