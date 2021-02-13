@@ -8,6 +8,8 @@
 
 * Jitsi-Meet does not require any special configuration, nor does it require to be aware of Planado.
 
+* Please read the [documentation & examples](docs/README.md) if you want to learn more.
+
 ## Requirements:
 
 * PHP (>=7)
