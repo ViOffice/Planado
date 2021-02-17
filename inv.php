@@ -38,7 +38,7 @@ if ($ihash > 0) {
             
             // is given admin ID legit?
             if ($sqlres["aid"] == $ahash) {
-                header("Location: https://" . $jdomain . "/" . $sqlres["rid"] . "");
+                header("Location: /out.php?room=" . $sqlres["rid"] . "");
                 exit();
                 // if not, reload site with invite ID only.
             } else {
@@ -57,7 +57,7 @@ if ($ihash > 0) {
         if ($sqlres) {
             // if room is already open
             if ($ctim >= $sqlres["time"]) {
-                header("Location: https://" . $jdomain . "/" . $sqlres["rid"] . "");
+                header("Location: /out.php?room=" . $sqlres["rid"] . "");
                 exit();
             } else {
                 // Load HTML functions
