@@ -16,6 +16,10 @@ include('conf/i18n.php');
 // Load HTML functions
 include('lib/html.php');
 
+// Create unique string for immediate room creation
+$string="" . $_SERVER['REQUEST_TIME_FLOAT'] . $_SERVER['HTTP_USER_AGENT'] . "";
+$roomid=hexdec( substr(md5($string), 0, 15) );
+
 // Create HTML Content
 $html_content="<h1>" . $indh1 . "</h1>
                <div class='justify-content-center'>
@@ -29,7 +33,7 @@ $html_content="<h1>" . $indh1 . "</h1>
                    <input class='button' type='submit' value='" . $indb1 . "'>
                  </form> 
                  <h2>" . $indh2 ."</h2>
-                 <a href=https://" . $jdomain . " target='_blank'>
+                 <a href=https://" . $jdomain . "/" . $roomid . " target='_blank'>
                    <input class='button' type='submit' value='" . $indb2 . "'>
                  </a><br><br>
              </div>";
