@@ -29,7 +29,7 @@ $html_content="<h1>" . $indh1 . "</h1>
                    <input class='button' type='submit' value='" . $indb1 . "'>
                  </form> 
                  <h2>" . $indh2 ."</h2>
-                 <a href=https://" . $jdomain . ">
+                 <a href=https://" . $jdomain . " target='_blank'>
                    <input class='button' type='submit' value='" . $indb2 . "'>
                  </a><br><br>
              </div>";
