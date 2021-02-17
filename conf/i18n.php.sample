@@ -24,6 +24,10 @@ if ($lang == "de") {
     $list4="Konferenzraum: ";
     $list5="Kalenderevent: ";
     $admin="Achtung: Der Konferenzraum ist erst ab der spezifizierten Zeit aufrufbar. Administrator:innen können ihn bereits zuvor über den Admin-Zugang betreten: ";
+    // out.php
+    $privh="Datenschutzerklärung";
+    $privt="Sie werden nun zu Jitsi-Meet weitergeleitet. Bitte lesen Sie die Datenschutzerklärung sorgfältig durch.";
+    $privb="Akzeptieren";
 } else {
     // index.php
     $indh1="Planado: book Jitsi room";
@@ -45,6 +49,9 @@ if ($lang == "de") {
     $list4="Conference Room: ";
     $list5="Calendar-Event: ";
     $admin="Attention: The conference room is unavailable before the specified time. Administrators may enter before that via the admin-access: ";
+    $privh="Privacy-Policy";
+    $privt="You are now being redirected to Jitsi-Meet. Please read the Privacy-Policy carefully.";
+    $privb="Accept";
 }
 
 ?>

@@ -17,4 +17,8 @@ $sqltabl=""; // DB table, ex conferences
 $jdomain=""; // jitsi domain, ex meet.jit.si
 $idomain=""; // planado domain, ex planado.example.com
 
+// Privacy Policy
+$privp=TRUE;
+$privl="https://jitsi.org/meet-jit-si-privacy/"
+
 ?>
