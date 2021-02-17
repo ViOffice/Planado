@@ -29,7 +29,7 @@ if ($privp == TRUE) {
         $html_content="<h1>" . $privh . "</h1>
                        <div class='justify-content-center'>
                          <p>" . $privt . " <a href=" . $privl . " target='_blank'>" . $privh . "</a></p><br>
-                         <a href=https://" . $jdomain . "/" . $room . " target='_blank'>
+                         <a href=https://" . $jdomain . "/" . $room . ">
                            <input class='button' type='submit' value='" . $privb . "'>
                          </a><br><br>
                        </div>";
