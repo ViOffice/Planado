@@ -90,7 +90,7 @@ if ($ihash > 0) {
                        <input type='number' id='id' name='id'><br>
                      </form> 
                    </div>";
-    build_html($html_content);
+    build_html($html_content, $inv_title, $inv_desc);
 }
 
 ?>

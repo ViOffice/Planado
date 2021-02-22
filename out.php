@@ -33,7 +33,7 @@ if ($privp == TRUE) {
                            <input class='button' type='submit' value='" . $privb . "'>
                          </a><br><br>
                        </div>";
-        build_html($html_content);
+        build_html($html_content, $priv_title, $priv_desc);
     } else {
         header("Location: /inv.php?error=true");
     }

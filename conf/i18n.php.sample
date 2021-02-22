@@ -5,6 +5,8 @@
 
 if ($lang == "de") {
     // index.php
+    $ind_title="Planado";
+    $ind_desc="Jitsi Räume buchen";
     $indh1="Planado: Jitsi Raum buchen";
     $indh2="Oder sofort einen Raum starten";
     $indt1="Konferenzname";
@@ -13,10 +15,14 @@ if ($lang == "de") {
     $indb1="Raum buchen";
     $indb2="Raum öffnen";
     // inv.php
+    $inv_title="Planado";
+    $inv_desc="Konferenz hat noch nicht begonnen";
     $waith="Die Konferenz hat noch nicht begonnen";
     $waitt="Bitte haben Sie Geduld. Sie werden automatisch weitergeleitet, sobald die Konferenz startet.";
     $noidh="Bitte geben Sie Ihre Einladungsnummer ein";
     // booking.php
+    $book_title="Planado";
+    $book_desc="Ihre Konferenzdaten";
     $headl="Sie haben einen Konferenzraum gebucht";
     $list1="Konferenzname: ";
     $list2="Datum: ";
@@ -25,11 +31,15 @@ if ($lang == "de") {
     $list5="Kalenderevent: ";
     $admin="Achtung: Der Konferenzraum ist erst ab der spezifizierten Zeit aufrufbar. Administrator:innen können ihn bereits zuvor über den Admin-Zugang betreten: ";
     // out.php
+    $priv_title="Planado";
+    $priv_desc="Akzeptieren Sie die Datenschutzerklärung";
     $privh="Datenschutzerklärung";
     $privt="Sie werden nun zu Jitsi-Meet weitergeleitet. Bitte lesen Sie die Datenschutzerklärung sorgfältig durch.";
     $privb="Akzeptieren";
 } else {
     // index.php
+    $ind_title="Planado";
+    $ind_desc="Book Jitsi rooms";
     $indh1="Planado: book Jitsi room";
     $indh2="Or start a room immediately";
     $indt1="Name of Conference";
@@ -38,10 +48,14 @@ if ($lang == "de") {
     $indb1="Book room";
     $indb2="Start room";
     // inv.php
+    $inv_title="Planado";
+    $inv_desc="Conference has not started";
     $waith="The conference has not started yet";
     $waitt="Please be patient. You will be redirected automatically, as soon as the conference starts.";
     $noidh="Please provide your Invite-Number";
     // booking.php
+    $book_title="Planado";
+    $book_desc="Your conference information";
     $headl="You booked a conference room";
     $list1="Name of Conference: ";
     $list2="Date: ";
@@ -49,6 +63,9 @@ if ($lang == "de") {
     $list4="Conference Room: ";
     $list5="Calendar-Event: ";
     $admin="Attention: The conference room is unavailable before the specified time. Administrators may enter before that via the admin-access: ";
+    // out.php
+    $priv_title="Planado";
+    $priv_desc="Accept the privacy-policy";
     $privh="Privacy-Policy";
     $privt="You are now being redirected to Jitsi-Meet. Please read the Privacy-Policy carefully.";
     $privb="Accept";
