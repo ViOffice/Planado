@@ -33,7 +33,7 @@ $html_content="<h1>" . $indh1 . "</h1>
                    <input class='button' type='submit' value='" . $indb1 . "'>
                  </form> 
                  <h2>" . $indh2 ."</h2>
-                 <a href=/out.php?room=" . $roomid . " target='_blank'>
+                 <a href='/out.php?room=" . $roomid . "' target='_blank'>
                    <input class='button' type='submit' value='" . $indb2 . "'>
                  </a><br><br>
              </div>";

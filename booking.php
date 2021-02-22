@@ -70,14 +70,14 @@ $html_content="<h1>" . $headl . "</h2>
                    </tr>
                    <tr>
                      <td class='th'><strong>" . $list4 . "</strong></td>
-                     <td><a href=" . $inv . " target='_blank' class='highlight'>" . $ihash . "</a></td>
+                     <td><a href='" . $inv . "' target='_blank' class='highlight'>" . $ihash . "</a></td>
                    </tr>
                    <tr>
                      <td class='th'><strong>" . $list5 . "</strong></td>
-                     <td><a href=" . $cal . " class='highlight'>Download .ics</a></td>
+                     <td><a href='" . $cal . "' class='highlight'>Download .ics</a></td>
                    </tr>
                  </table><br><br>
-                 <p>" . $admin . "<a href=" . $adm . " target='_blank' class='highlight'>Admin</a>.</p>
+                 <p>" . $admin . "<a href='" . $adm . "' target='_blank' class='highlight'>Admin</a>.</p>
                </div>";
 build_html($html_content, $book_title, $book_desc);
 
