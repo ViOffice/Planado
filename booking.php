@@ -79,7 +79,7 @@ $html_content="<h1>" . $headl . "</h2>
                  </table><br><br>
                  <p>" . $admin . "<a href=" . $adm . " target='_blank' class='highlight'>Admin</a>.</p>
                </div>";
-build_html($html_content);
+build_html($html_content, $book_title, $book_desc);
 
 // return error otherwhise
 } else {

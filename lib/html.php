@@ -3,16 +3,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-only
 
-function build_html($content) {
+function build_html($content, $title, $description) {
 
     // Define common HTML --------------------------------------------------- //
 
     $html_head="<html>
                   <head>
                     <meta charset='utf-8'>
-                    <title>" . $website_title . "</title>
+                    <title>" . $title . "</title>
                     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
-                    <meta name='description' content=" . $website_description . ">
+                    <meta name='description' content='" . $description . "'>
                     <link rel='stylesheet' href='static/css/default.css'>
                     <link rel='stylesheet' href='static/css/custom.css'>
                     <link rel='shortcut icon' href='static/img/favicon.ico' type='image/x-icon'>
