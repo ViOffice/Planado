@@ -19,6 +19,10 @@ $idomain=""; // planado domain, ex planado.example.com
 
 // Privacy Policy
 $privp=TRUE;
-$privl="https://jitsi.org/meet-jit-si-privacy/"
+$privl="https://jitsi.org/meet-jit-si-privacy/";
+
+// Cleanup settings
+$cleanup="iframe"; // type of cleanup
+$delete_after_days=1; // by default, delete entries 24h after the event
 
 ?>
