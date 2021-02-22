@@ -39,7 +39,7 @@ if ($privp == TRUE) {
     }
     
 } else {
-    header("Location: " . $jdomain . "/" . $room . "");
+    header("Location: https://" . $jdomain . "/" . $room . "");
 }
 
 ?>
