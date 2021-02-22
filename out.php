@@ -28,8 +28,8 @@ if ($privp == TRUE) {
         // Create HTML Content
         $html_content="<h1>" . $privh . "</h1>
                        <div class='justify-content-center'>
-                         <p>" . $privt . " <a href=" . $privl . " target='_blank'>" . $privh . "</a></p><br>
-                         <a href='https://" . $jdomain . "/" . $room . "' class='highlight'>
+                         <p>" . $privt . " <a href=" . $privl . " target='_blank' class='highlight'>" . $privh . "</a></p><br>
+                         <a href='https://" . $jdomain . "/" . $room . "'>
                            <input class='button' type='submit' value='" . $privb . "'>
                          </a><br><br>
                        </div>";
