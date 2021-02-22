@@ -70,7 +70,7 @@ if ($ihash > 0) {
                                  <p>" . $waitt . "</p><br>
                                  <img src='/static/img/waiting.gif' alt='Waiting...' width='100px'>
                                </div>";
-                build_html($html_content);
+                build_html($html_content, $inv_title, $inv_desc);
             }
         } else {
             // if room does not exist
