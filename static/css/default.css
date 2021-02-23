@@ -21,8 +21,9 @@ html {
     color: var(--secondary);
     margin: 0;
     height: 100%;
+    min-height: 100vh;
     background-repeat: no-repeat !important;
-    background-size: auto 300% !important;
+    background-size: cover !important;
     background-position: center !important;
     background: var(--primarya) url('/static/img/bg.jpg');
     background-blend-mode: multiply;
@@ -33,7 +34,7 @@ html {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    height: 100%;
+    max-height: 100%;
     width: 50%;
     max-width: 600px;
     min-width: 350px;
