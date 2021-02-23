@@ -12,15 +12,16 @@ $id=$_GET['id'];
 include('conf/common.php');
 
 // process input
-$ftime=date('His', $time);
-$fdate=date('Ymd', $time);
+$stime=date('His', $time); // start time
+$sdate=date('Ymd', $time); // start date
+$etime=date('His', strtotime('+1 hours', $time)); // end time (1 hour later)
+$edate=date('Ymd', strtotime('+1 hours', $time)); // end date (1 hour later)
 $url="https://" . $idomain . "/inv.php?id=" . $id . "";
 $ical="Event_" . $time . "_" . $id . ".ics";
 
 // current time
 $ctime=date('His');
 $cdate=date('Ymd');
-$ctizo=date('e');
 
 // Define Filetype
 header("Content-Type: text/Calendar");
@@ -39,14 +40,14 @@ $tmp="UID:" . $id . "@" . $idomain . "\n";
 echo $tmp;
 $tmp="LOCATION:" . $url . "\n";
 echo $tmp;
-$tmp="SUMMARY:Meeting\: " . $name . "\n";
+$tmp="SUMMARY:Meeting: " . $name . "\n";
 echo $tmp;
-$tmp="DESCRIPTION:Meeting\: " . $name . "\\n\\n ". $url . "\n";
+$tmp="DESCRIPTION:Meeting: " . $name . "\\n\\n ". $url . "\n";
 echo $tmp;
 echo "CLASS:PUBLIC\n";
-$tmp="DTSTART:" . $fdate . "T" . $ftime . "\n";
+$tmp="DTSTART:" . $sdate . "T" . $stime . "\n";
 echo $tmp;
-$tmp="DTEND:" . $fdate . "T" . $ftime . "\n";
+$tmp="DTEND:" . $edate . "T" . $etime . "\n";
 echo $tmp;
 $tmp="DTSTAMP:" . $cdate . "T" . $ctime . "\n";
 echo $tmp;
