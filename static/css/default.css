@@ -23,7 +23,7 @@ html {
     height: 100%;
     min-height: 100vh;
     background-repeat: no-repeat !important;
-    background-size: cover !important;
+    background-size: auto !important;
     background-position: center !important;
     background: var(--primarya) url('/static/img/bg.jpg');
     background-blend-mode: multiply;
