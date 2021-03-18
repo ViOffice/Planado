@@ -21,7 +21,7 @@ include('conf/i18n.php');
 // process input
 $name = preg_replace('/[^A-Za-z0-9\ \-\_\.]/', "", $name); // clean up name
 $ename = preg_replace('/\ /', '%20', $name); // HTML encode
-$tsta = strtotime("" . $date . " " . $time . ":00");
+$tsta = strtotime("" . $date . " " . $time . "");
 $ctim = time();
 
 // create hashes
@@ -33,7 +33,7 @@ $rhash = hexdec( substr(sha1($string), 0, 15) ); // room ID
 
 // prepare output
 $inv = "/inv.php?id=" . $ihash . "";
-$adm = "/inv.php?id=" . $ihash . "&admin=" . $ahash . "";
+$adm = "/admin.php?id=" . $ihash . "&admin=" . $ahash . "";
 $cal = "/cal.php?name=" . $ename . "&time=" . $tsta . "&id=" . $ihash . "";
 
 // connect to database
@@ -76,8 +76,11 @@ $html_content="<h1>" . $headl . "</h2>
                      <td class='th'><strong>" . $list5 . "</strong></td>
                      <td><a href=" . $cal . " class='highlight'>Download .ics</a></td>
                    </tr>
-                 </table><br><br>
-                 <p>" . $admin . "<a href=" . $adm . " target='_blank' class='highlight'>Admin</a>.</p>
+                   <tr>
+                     <td class='th'><strong>" . $list6 . "</strong></td>
+                     <td><a href=" . $adm . " target='_blank' class='highlight'>Admin-URL</a></td>
+                   <tr>
+                 </table>
                </div>";
 build_html($html_content);
 
