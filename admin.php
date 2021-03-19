@@ -49,12 +49,14 @@ if ($sqlcon->connect_error) {
 $sqlque = "SELECT aid, time FROM " . $sqltabl . " WHERE iid=" . $ihash . "";
 $sqlres = $sqlcon->query($sqlque)->fetch_assoc();
 
+// if provided admin-id corresponds to the provided invite-id, we either show a
+// form to change the time-stamp of the event or change the DB-entry
 if ($sqlres["aid"] == $ahash) {
 
     // if no time is given, we probably want to query the admin...
     if ($tsta == "") {
 
-        // What were the old time & date values?
+        // What were the old time and date values?
         $odate = date('Y-m-d', $sqlres["time"]);
         $otime = date('H:i', $sqlres["time"]);
 
@@ -76,6 +78,8 @@ if ($sqlres["aid"] == $ahash) {
                      </div>";
         build_html($html_content);
 
+    // if time-stamp is given, we should update the data base entry and report
+        // back the updated information to the admin.
     } else {
 
         // update database (time-stamp)
@@ -111,7 +115,7 @@ if ($sqlres["aid"] == $ahash) {
                    </tr>
                    <tr>
                      <td class='th'><strong>" . $list6 . "</strong></td>
-                     <td><a href=" . $adm . " target='_blank' class='highlight'>Admin-URL</a></td>
+                     <td><a href=" . $adm . " target='_blank' class='highlight'>" . $ahash . "</a></td>
                    <tr>
                  </table>
                </div>";
