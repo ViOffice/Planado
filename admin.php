@@ -79,7 +79,7 @@ if ($sqlres["aid"] == $ahash) {
         build_html($html_content);
 
     // if time-stamp is given, we should update the data base entry and report
-        // back the updated information to the admin.
+    // back the updated information to the admin.
     } else {
 
         // update database (time-stamp)
@@ -121,10 +121,22 @@ if ($sqlres["aid"] == $ahash) {
                </div>";
             build_html($html_content);
 
+        } // FIXME: what happens on fail?
 
-                <div class='justify-content-center'>
-                    <p>" . $adminupok . "</p><br>
-                    <img src='/static/img/waiting.gif' alt='Waiting...' width='100px'>
-                </div>";
+    }
+
+} else {
+    // Create HTML Content
+    $html_content="<h1>" . $noidh . "</h1>
+                   <div class='justify-content-center'>
+                     <form action='/admin.php'> 
+                       <label for='id'><strong>" . $list4 . "</strong></label><br>
+                       <input type='text' id='id' name='id'><br><br>
+                       <label for='admin'><strong>" . $list6 . "</strong></label><br>
+                       <input type='text' id='admin' name='admin'><br><br>
+                     </form> 
+                   </div>";
     build_html($html_content);
+}
 
+?>
