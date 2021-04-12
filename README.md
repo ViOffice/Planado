@@ -49,12 +49,13 @@ Then edit either file, accordingly. *Note: `i18n.php.sample` already contains wo
 
 * Custom CSS: `static/css/custom.css`
 * Custom JS: `static/js/custom.js`
-* Custom images: `static/img/background.jpg` & `static/img/waiting.gif`
+* Custom images: `static/img/background.jpg`, `static/img/waiting.gif` & `static/img/favicon.ico`
 * Custom fonts: `static/img/fonts/` (also add to your CSS)
 
 ```
 cp static/img/bg.jpg.sample static/img/bg.jpg
 cp static/img/waiting.gif.sample static/img/waiting.gif
+cp static/img/favicon.ico.sample static/img/favicon.ico
 ```
 
 4. Create the database according to your configurations either manually or via the `create_db.php` script:
