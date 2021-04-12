@@ -23,6 +23,6 @@ $privl="https://jitsi.org/meet-jit-si-privacy/";
 
 // Cleanup settings
 $cleanup="iframe"; // type of cleanup
-$delete_after_days=1; // by default, delete entries 24h after the event
+$delete_after_days=7; // by default, delete entries 7 days after the event
 
 ?>
