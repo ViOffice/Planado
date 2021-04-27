@@ -27,12 +27,13 @@ include('lib/html.php');
 // process input
 $name = preg_replace('/[^A-Za-z0-9\ \-\_\.]/', "", $name); // clean up name
 $ename = preg_replace('/\ /', '%20', $name); // HTML encode
-if ($tsta == "") {
+if ($date != "" || $time != "") {
     $tsta = strtotime("" . $date . " " . $time . "");
 } else {
-    $date = date('Y-m-d', $tsta);
-    $time = date('H:i', $tsta);
+    $tsta = "";
 }
+if ($ihash == "") $ihash = 0;
+if ($ahash == "") $ahash = 0;
 
 // prepare output
 $inv = "/inv.php?id=" . $ihash . "";
@@ -42,7 +43,7 @@ $cal = "/cal.php?name=" . $ename . "&time=" . $tsta . "&id=" . $ihash . "";
 // connect to database
 $sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass, $sqlname);
 if ($sqlcon->connect_error) {
-   die("Connection failed: " . $conn->connect_error);
+   die("Connection failed: " . $sqlcon->connect_error);
 }
 
 // extract admin-id and time-stamp from given invite-id
@@ -50,8 +51,8 @@ $sqlque = "SELECT aid, time FROM " . $sqltabl . " WHERE iid=" . $ihash . "";
 $sqlres = $sqlcon->query($sqlque)->fetch_assoc();
 
 // if provided admin-id corresponds to the provided invite-id, we either show a
-// form to change the time-stamp of the event or change the DB-entry
-if ($sqlres["aid"] == $ahash) {
+// form to change the time-stamp of thevent or change the DB-entry
+if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
 
     // if no time is given, we probably want to query the admin...
     if ($tsta == "") {
@@ -71,7 +72,7 @@ if ($sqlres["aid"] == $ahash) {
                            <input type='date' id='date' name='date' value='" . $odate . "' ><br><br>
                            <label for='time'><strong>" . $indt3 . "</strong></label><br>
                            <input type='time' id='time' name='time' value='" . $otime . "'><br><br>
-                           <input class='button' type='submit' value='" . $indb1 . "'>
+                           <input class='button' type='submit' value='" . $adminb1 . "'>
                            <input type='hidden' name='id' value=" . $ihash . ">
                            <input type='hidden' name='admin' value=" . $ahash . ">
                          </form> 
@@ -83,8 +84,7 @@ if ($sqlres["aid"] == $ahash) {
     } else {
 
         // update database (time-stamp)
-        $sqlque = "UPDATE " . $sqltabl . "SET time='" . $tsta . "'
-            WHERE iid=" . $ihash . "";
+        $sqlque = "UPDATE " . $sqltabl . " SET time=" . $tsta . " WHERE iid=" . $ihash . "";
 
         // return HTML if update was successful
         if ($sqlcon->query($sqlque) === TRUE) {
@@ -122,9 +122,9 @@ if ($sqlres["aid"] == $ahash) {
             build_html($html_content);
 
         } // FIXME: what happens on fail?
-
-    }
-
+        echo "error 1...";
+     }
+     echo "error 2...";
 } else {
     // Create HTML Content
     $html_content="<h1>" . $noidh . "</h1>

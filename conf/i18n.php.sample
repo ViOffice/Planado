@@ -24,6 +24,10 @@ if ($lang == "de") {
     $list4="Konferenzraum: ";
     $list5="Kalenderevent: ";
     $list6="Admin-Zugang: ";
+    // admin.php
+    $adminh="Konferenzdaten ändern";
+    $adminb="Raum ändern";
+    $noid="Geben Sie die Einladungs- und Admin-ID ein";
 } else {
     // index.php
     $indh1="Planado: book Jitsi room";
@@ -36,7 +40,7 @@ if ($lang == "de") {
     // inv.php
     $waith="The conference has not started yet";
     $waitt="Please be patient. You will be redirected automatically, as soon as the conference starts.";
-    $noidh="Please provide your Invite-Number";
+    $noidh="Please provide your Invite-ID";
     // booking.php
     $headl="You booked a conference room";
     $list1="Name of Conference: ";
@@ -45,6 +49,11 @@ if ($lang == "de") {
     $list4="Conference Room: ";
     $list5="Calendar-Event: ";
     $list6="Admin-Access: ";
+    // admin.php
+    $adminh="Change Conference Information";
+    $adminb="Change room";
+    $noid="Please provide the Invite and Admin IDs";
+
 }
 
 ?>
