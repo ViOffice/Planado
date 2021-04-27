@@ -83,11 +83,11 @@ if ($ihash > 0) {
     include('lib/html.php');
     
     // Create HTML Content
-    $html_content="<meta http-equiv='refresh' content='30' >
-                   <h1>" . $noidh . "</h1>
+    $html_content="<h1>" . $noidh . "</h1>
                    <div class='justify-content-center'>
                      <form action='/inv.php'> 
-                       <input type='number' id='id' name='id'><br>
+                       <label for='id'><strong>" . $list4 . "</strong></label><br>
+                       <input type='text' id='id' name='id'><br><br>
                      </form> 
                    </div>";
     build_html($html_content, $inv_title, $inv_desc);

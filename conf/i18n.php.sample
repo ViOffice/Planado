@@ -29,13 +29,17 @@ if ($lang == "de") {
     $list3="Uhrzeit: ";
     $list4="Konferenzraum: ";
     $list5="Kalenderevent: ";
-    $admin="Achtung: Der Konferenzraum ist erst ab der spezifizierten Zeit aufrufbar. Administrator:innen können ihn bereits zuvor über den Admin-Zugang betreten: ";
+    $list6="Admin-Zugang: ";
     // out.php
     $priv_title="Planado";
     $priv_desc="Akzeptieren Sie die Datenschutzerklärung";
     $privh="Datenschutzerklärung";
     $privt="Sie werden nun zu Jitsi-Meet weitergeleitet. Bitte lesen Sie die Datenschutzerklärung sorgfältig durch.";
     $privb="Akzeptieren";
+    // admin.php
+    $adminh="Konferenzdaten ändern";
+    $adminb="Raum ändern";
+    $noid="Geben Sie die Einladungs- und Admin-ID ein";
 } else {
     // index.php
     $ind_title="Planado";
@@ -52,7 +56,7 @@ if ($lang == "de") {
     $inv_desc="Conference has not started";
     $waith="The conference has not started yet";
     $waitt="Please be patient. You will be redirected automatically, as soon as the conference starts.";
-    $noidh="Please provide your Invite-Number";
+    $noidh="Please provide your Invite-ID";
     // booking.php
     $book_title="Planado";
     $book_desc="Your conference information";
@@ -62,13 +66,17 @@ if ($lang == "de") {
     $list3="Time: ";
     $list4="Conference Room: ";
     $list5="Calendar-Event: ";
-    $admin="Attention: The conference room is unavailable before the specified time. Administrators may enter before that via the admin-access: ";
+    $list6="Admin-Access: ";
     // out.php
     $priv_title="Planado";
     $priv_desc="Accept the privacy-policy";
     $privh="Privacy-Policy";
     $privt="You are now being redirected to Jitsi-Meet. Please read the Privacy-Policy carefully.";
     $privb="Accept";
+    // admin.php
+    $adminh="Change Conference Information";
+    $adminb="Change room";
+    $noid="Please provide the Invite and Admin IDs";
 }
 
 ?>
