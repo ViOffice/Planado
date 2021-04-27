@@ -1,6 +1,6 @@
 # Planado
 
-[![reuse compliant](https://reuse.software/badge/reuse-compliant.svg)](https://reuse.software/) [![Hosted on Codeberg](https://img.shields.io/badge/Codeberg-Main%20Repository-blue.svg)](https://codeberg.org/ViOffice/Planado) [![Github Mirror](https://img.shields.io/badge/Github-Mirror-blue.svg)](https://github.com/ViOffice/Planado)
+[![reuse compliant](https://reuse.software/badge/reuse-compliant.svg)](https://reuse.software/) [![Hosted on Codeberg](https://img.shields.io/badge/Codeberg-Main%20Repository-blue.svg)](https://codeberg.org/ViOffice/Planado) [![Github Mirror](https://img.shields.io/badge/Github-Mirror-blue.svg)](https://github.com/ViOffice/Planado) [![Latest Release](https://img.shields.io/badge/Latest-0.0.1-green.svg)](https://codeberg.org/ViOffice/Planado/releases/0.0.1)
 
 > Planning and Room-Reservation tool for Jitsi-Meet and ViOffice Conference. Live Version at https://planado.vioffice.de
 
