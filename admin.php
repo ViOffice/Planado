@@ -72,7 +72,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                            <input type='date' id='date' name='date' value='" . $odate . "' ><br><br>
                            <label for='time'><strong>" . $indt3 . "</strong></label><br>
                            <input type='time' id='time' name='time' value='" . $otime . "'><br><br>
-                           <input class='button' type='submit' value='" . $adminb1 . "'>
+                           <input class='button' type='submit' value='" . $adminb . "'>
                            <input type='hidden' name='id' value=" . $ihash . ">
                            <input type='hidden' name='admin' value=" . $ahash . ">
                          </form> 
@@ -122,9 +122,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
             build_html($html_content, $admin_title, $admin_desc);
 
         } // FIXME: what happens on fail?
-        echo "error 1...";
      }
-     echo "error 2...";
 } else {
     // Create HTML Content
     $html_content="<h1>" . $noidh . "</h1>
