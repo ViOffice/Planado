@@ -77,7 +77,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                            <input type='hidden' name='admin' value=" . $ahash . ">
                          </form> 
                      </div>";
-        build_html($html_content);
+        build_html($html_content, $admin_title, $admin_desc);
 
     // if time-stamp is given, we should update the data base entry and report
     // back the updated information to the admin.
@@ -119,7 +119,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                    <tr>
                  </table>
                </div>";
-            build_html($html_content);
+            build_html($html_content, $admin_title, $admin_desc);
 
         } // FIXME: what happens on fail?
         echo "error 1...";
@@ -136,7 +136,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                        <input type='text' id='admin' name='admin'><br><br>
                      </form> 
                    </div>";
-    build_html($html_content);
+    build_html($html_content, $admin_title, $admin_desc);
 }
 
 ?>

@@ -37,6 +37,8 @@ if ($lang == "de") {
     $privt="Sie werden nun zu Jitsi-Meet weitergeleitet. Bitte lesen Sie die Datenschutzerklärung sorgfältig durch.";
     $privb="Akzeptieren";
     // admin.php
+    $admin_title="Planado";
+    $admin_desc="Konferenzdaten ändern";
     $adminh="Konferenzdaten ändern";
     $adminb="Raum ändern";
     $noid="Geben Sie die Einladungs- und Admin-ID ein";
@@ -74,6 +76,8 @@ if ($lang == "de") {
     $privt="You are now being redirected to Jitsi-Meet. Please read the Privacy-Policy carefully.";
     $privb="Accept";
     // admin.php
+    $admin_title="Planado";
+    $admin_desc="Change conference room";
     $adminh="Change Conference Information";
     $adminb="Change room";
     $noid="Please provide the Invite and Admin IDs";
