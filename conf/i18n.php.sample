@@ -30,6 +30,7 @@ if ($lang == "de") {
     $list4="Konferenzraum: ";
     $list5="Kalenderevent: ";
     $list6="Admin-Zugang: ";
+    $copyb="Daten kopieren"
     // out.php
     $priv_title="Planado";
     $priv_desc="Akzeptieren Sie die Datenschutzerklärung";
@@ -69,6 +70,7 @@ if ($lang == "de") {
     $list4="Conference Room: ";
     $list5="Calendar-Event: ";
     $list6="Admin-Access: ";
+    $copyb="Copy information";
     // out.php
     $priv_title="Planado";
     $priv_desc="Accept the privacy-policy";

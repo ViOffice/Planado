@@ -81,7 +81,15 @@ $html_content="<h1>" . $headl . "</h2>
                      <td><a href=" . $adm . " target='_blank' class='highlight'>Admin-URL</a></td>
                    <tr>
                  </table>
-               </div>";
+               </div>
+               <textarea style='display:none;' id='confinfo'>" . $list1 .": " . $name . ""
+                 . $list2 . ": " . $date . ""
+                 . $list3 . ": " . $time . ""
+                 . $list4 . ": http://" . $idomain . "" . $inv . ""
+                 . $list5 . ": http://" . $idomain . "" . $cal . "</textarea>
+               <input id='copyconfinfo' class='button' type='submit' value='" . $copyb . "'>
+               <script src='/static/js/copy.js'></script>
+               <script>document.querySelector('#copyconfinfo').addEventListener('click', CopyToClipboard('#confinfo');</script>";
 build_html($html_content, $book_title, $book_desc);
 
 // return error otherwhise
