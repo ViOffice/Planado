@@ -81,15 +81,21 @@ $html_content="<h1>" . $headl . "</h2>
                      <td><a href=" . $adm . " target='_blank' class='highlight'>Admin-URL</a></td>
                    <tr>
                  </table>
-               </div>
-               <textarea style='display:none;' id='confinfo'>" . $list1 .": " . $name . ""
-                 . $list2 . ": " . $date . ""
-                 . $list3 . ": " . $time . ""
-                 . $list4 . ": http://" . $idomain . "" . $inv . ""
-                 . $list5 . ": http://" . $idomain . "" . $cal . "</textarea>
-               <input id='copyconfinfo' class='button' type='submit' value='" . $copyb . "'>
-               <script src='/static/js/copy.js'></script>
-               <script>document.querySelector('#copyconfinfo').addEventListener('click', CopyToClipboard('#confinfo');</script>";
+                 <textarea style='display:none;' id='copythis'>" . $list1 . " " . $name . "\n"
+                   . $list2 . " " . $date . "\n"
+                   . $list3 . " " . $time . "\n"
+                   . $list4 . " http://" . $idomain . "" . $inv . "\n"
+                   . $list5 . " http://" . $idomain . "" . $cal . "</textarea><br>
+                 <input id='copyconfinfo' class='button' type='submit' value='" . $cpbtnpre . "' onclick='PrintCopied();'>
+                 <!-- Load copy function -->
+                 <script src='/static/js/copy.js'></script>
+                 <!-- Add Event Listener for copy button -->
+                 <script>document.querySelector('#copyconfinfo').addEventListener('click', CopyToClipboard);</script>
+                 <!-- Change button value on click -->
+                 <script>function PrintCopied() { const btn = document.querySelector('#copyconfinfo');btn.value = '" . $cpbtnpost . "'; }</script>
+                 <!-- Add NoScript warning -->
+                 <noscript>" . $nojs . "</noscript>
+               </div>";
 build_html($html_content, $book_title, $book_desc);
 
 // return error otherwhise

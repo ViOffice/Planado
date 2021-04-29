@@ -4,6 +4,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 if ($lang == "de") {
+    // common
+    $nojs="Javascript ist in Ihrem browser deaktiviert. Einige Funktionen stehen Ihnen möglicherweise nicht zur Verfügung.";
     // index.php
     $ind_title="Planado";
     $ind_desc="Jitsi Räume buchen";
@@ -30,7 +32,8 @@ if ($lang == "de") {
     $list4="Konferenzraum: ";
     $list5="Kalenderevent: ";
     $list6="Admin-Zugang: ";
-    $copyb="Daten kopieren"
+    $cpbtnpre="Daten kopieren";
+    $cpbtnpost="Daten kopiert!";
     // out.php
     $priv_title="Planado";
     $priv_desc="Akzeptieren Sie die Datenschutzerklärung";
@@ -44,6 +47,8 @@ if ($lang == "de") {
     $adminb="Raum ändern";
     $noid="Geben Sie die Einladungs- und Admin-ID ein";
 } else {
+    // common
+    $nojs="Javascript seems to be disabled in your browser. Some functionality may not be available to you.";
     // index.php
     $ind_title="Planado";
     $ind_desc="Book Jitsi rooms";
@@ -70,7 +75,8 @@ if ($lang == "de") {
     $list4="Conference Room: ";
     $list5="Calendar-Event: ";
     $list6="Admin-Access: ";
-    $copyb="Copy information";
+    $cpbtnpre="Copy information";
+    $cpbtnpost="Copied Information!";
     // out.php
     $priv_title="Planado";
     $priv_desc="Accept the privacy-policy";

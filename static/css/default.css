@@ -100,3 +100,18 @@ a:hover.highlight {
     color: var(--primary);
     background-color: var(--secondary);
 }
+
+.button:focus,.button:active,.button:visited {
+    color: var(--secondary);
+    background-color: var(--primarya);
+    border-color: var(--primary);
+}
+.button:after {
+  content: "World";
+  position: absolute;
+  display: block;
+  color: black;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+}

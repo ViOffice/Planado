@@ -4,17 +4,17 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-function CopyToClipboard(selector) {
+function CopyToClipboard() {
     // Select object (has to be text field)
-    const copyText = document.querySelector(selector);
+    const copyText = document.querySelector("#copythis");
     // make sure, text field is displayed
-    copyText.style.display = 'initial';
+    copyText.style.display = "initial";
     // Select and copy text field
     copyText.select();
     copyText.setSelectionRange(0, 99999); // For mobile devices
     document.execCommand("copy");
     // hide object again
-    copyText.style.display = 'none';
+    copyText.style.display = "none";
 }
 
 /* Implement Eventlistener in specified site like this:
