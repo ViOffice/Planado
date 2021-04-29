@@ -118,6 +118,20 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                      <td><a href=" . $adm . " target='_blank' class='highlight'>" . $ahash . "</a></td>
                    <tr>
                  </table>
+                 <textarea style='display:none;' id='copythis'>" . $list1 . " " . $name . "\n"
+                   . $list2 . " " . $date . "\n"
+                   . $list3 . " " . $time . "\n" 
+                   . $list4 . " http://" . $idomain . "" . $inv . "\n"
+                   . $list5 . " http://" . $idomain . "" . $cal . "</textarea><br>
+                 <input id='copyconfinfo' class='button' type='submit' value='" . $cpbtnpre . "' onclick='PrintCopied();'>
+                 <!-- Load copy function -->
+                 <script src='/static/js/copy.js'></script>
+                 <!-- Add Event Listener for copy button -->
+                 <script>document.querySelector('#copyconfinfo').addEventListener('click', CopyToClipboard);</script>
+                 <!-- Change button value on click -->
+                 <script>function PrintCopied() { const btn = document.querySelector('#copyconfinfo');btn.value = '" . $cpbtnpost . "'; }</script>
+                 <!-- Add NoScript warning -->
+                 <noscript>" . $nojs . "</noscript>
                </div>";
             build_html($html_content, $admin_title, $admin_desc);
 
