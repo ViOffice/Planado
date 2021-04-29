@@ -100,3 +100,9 @@ a:hover.highlight {
     color: var(--primary);
     background-color: var(--secondary);
 }
+
+.button:focus,.button:active,.button:visited {
+    color: var(--secondary);
+    background-color: var(--primarya);
+    border-color: var(--primary);
+}
