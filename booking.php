@@ -35,7 +35,7 @@ $rhash = hexdec( substr(sha1($string), 0, 15) ); // room ID
 // prepare output
 $inv = "https://" . $idomain . "/inv.php?id=" . $ihash . "";
 $adm = "https://" . $idomain . "/admin.php?id=" . $ihash . "&admin=" . $ahash . "";
-$cal = "https://" . $idomain . "/cal.php?name=" . urlencode($name) . "&time=" . $tsta . "&id=" . $ihash . "";
+$cal = "https://" . $idomain . "/cal.php?name=" . rawurlencode($name) . "&time=" . $tsta . "&id=" . $ihash . "";
 
 // connect to database
 $sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass, $sqlname);
@@ -89,7 +89,7 @@ $html_content="<h1>" . $headl . "</h2>
                    . $list4 . " " . $inv . "\n"
                    . $list5 . " " . $cal . "\n</textarea><br>
                  <input id='copyconfinfo' class='button' type='submit' value='" . $cpbtnpre . "' onclick='PrintCopied();'>
-                 <a href='mailto:?subject=" . urlencode($invtx) . "&body=" . urlencode($list1) . "" . urlencode($name) . "\n" . urlencode($list2) . "" . urlencode($date) . "\n" . urlencode($list3) . "" . urlencode($time) . "\n" . urlencode($list4) . "" . urlencode($inv) . "\n" . urlencode($list5) . "" . urlencode($cal) . "'>
+                 <a href='mailto:?subject=" . rawurlencode($invtx) . "&body=" . rawurlencode($list1) . "" . rawurlencode($name) . "\n" . rawurlencode($list2) . "" . rawurlencode($date) . "\n" . rawurlencode($list3) . "" . rawurlencode($time) . "\n" . rawurlencode($list4) . "" . rawurlencode($inv) . "\n" . rawurlencode($list5) . "" . rawurlencode($cal) . "'>
                    <input class='button' type='submit' value='" . $mailbtn . "'>
                  </a>
                  <!-- Load copy function -->
