@@ -34,6 +34,8 @@ if ($lang == "de") {
     $list6="Admin-Zugang: ";
     $cpbtnpre="Daten kopieren";
     $cpbtnpost="Daten kopiert!";
+    $mailbtn="Per E-mail senden";
+    $invtx="Sie wurden zu einer Videokonferenz eingeladen";
     // out.php
     $priv_title="Planado";
     $priv_desc="Akzeptieren Sie die Datenschutzerklärung";
@@ -77,6 +79,8 @@ if ($lang == "de") {
     $list6="Admin-Access: ";
     $cpbtnpre="Copy information";
     $cpbtnpost="Copied Information!";
+    $mailbtn="Send via E-Mail";
+    $invtx="You have been invited to a video conference";
     // out.php
     $priv_title="Planado";
     $priv_desc="Accept the privacy-policy";

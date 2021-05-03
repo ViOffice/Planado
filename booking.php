@@ -20,7 +20,8 @@ include('conf/i18n.php');
 
 // process input
 $name = preg_replace('/[^A-Za-z0-9\ \-\_\.]/', "", $name); // clean up name
-$ename = preg_replace('/\ /', '%20', $name); // HTML encode
+$date = preg_replace('/[^0-9\.\-]/', "", $date); // clean up date
+$time = preg_replace('/[^0-9APM\.\:, "", $time); // clean up time
 $tsta = strtotime("" . $date . " " . $time . "");
 $ctim = time();
 
@@ -32,9 +33,9 @@ $ahash = hexdec( substr($fhash, 15, 15) ); // last 16 are admin hash
 $rhash = hexdec( substr(sha1($string), 0, 15) ); // room ID
 
 // prepare output
-$inv = "/inv.php?id=" . $ihash . "";
-$adm = "/admin.php?id=" . $ihash . "&admin=" . $ahash . "";
-$cal = "/cal.php?name=" . $ename . "&time=" . $tsta . "&id=" . $ihash . "";
+$inv = "https://" . $idomain . "/inv.php?id=" . $ihash . "";
+$adm = "https://" . $idomain . "/admin.php?id=" . $ihash . "&admin=" . $ahash . "";
+$cal = "https://" . $idomain . "/cal.php?name=" . urlencode($name) . "&time=" . $tsta . "&id=" . $ihash . "";
 
 // connect to database
 $sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass, $sqlname);
@@ -81,12 +82,16 @@ $html_content="<h1>" . $headl . "</h2>
                      <td><a href=" . $adm . " target='_blank' class='highlight'>Admin-URL</a></td>
                    <tr>
                  </table>
-                 <textarea style='display:none;' id='copythis'>" . $list1 . " " . $name . "\n"
+                 <textarea style='display:none;' id='copythis'>" . $invtx . "\n"
+                   . $list1 . " " . $name . "\n"
                    . $list2 . " " . $date . "\n"
                    . $list3 . " " . $time . "\n"
-                   . $list4 . " http://" . $idomain . "" . $inv . "\n"
-                   . $list5 . " http://" . $idomain . "" . $cal . "</textarea><br>
+                   . $list4 . " " . $inv . "\n"
+                   . $list5 . " " . $cal . "\n</textarea><br>
                  <input id='copyconfinfo' class='button' type='submit' value='" . $cpbtnpre . "' onclick='PrintCopied();'>
+                 <a href='mailto:?subject=" . urlencode($invtx) . "&body=" . urlencode($list1) . "" . urlencode($name) . "\n" . urlencode($list2) . "" . urlencode($date) . "\n" . urlencode($list3) . "" . urlencode($time) . "\n" . urlencode($list4) . "" . urlencode($inv) . "\n" . urlencode($list5) . "" . urlencode($cal) . ""'>
+                   <input class='button' type='submit' value='" . $mailbtn . "'>
+                 </a>
                  <!-- Load copy function -->
                  <script src='/static/js/copy.js'></script>
                  <!-- Add Event Listener for copy button -->
