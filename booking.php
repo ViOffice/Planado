@@ -89,7 +89,7 @@ $html_content="<h1>" . $headl . "</h2>
                    . $list4 . " " . $inv . "\n"
                    . $list5 . " " . $cal . "\n</textarea><br>
                  <input id='copyconfinfo' class='button' type='submit' value='" . $cpbtnpre . "' onclick='PrintCopied();'>
-                 <a href='mailto:?subject=" . rawurlencode($invtx) . "&body=" . rawurlencode($list1) . "" . rawurlencode($name) . "\n" . rawurlencode($list2) . "" . rawurlencode($date) . "\n" . rawurlencode($list3) . "" . rawurlencode($time) . "\n" . rawurlencode($list4) . "" . rawurlencode($inv) . "\n" . rawurlencode($list5) . "" . rawurlencode($cal) . "'>
+                 <a href='mailto:?subject=" . rawurlencode($invtx) . "&body=" . rawurlencode($list1) . "" . rawurlencode($name) . "%0D%0A" . rawurlencode($list2) . "" . rawurlencode($date) . "%0D%0A" . rawurlencode($list3) . "" . rawurlencode($time) . "%0D%0A" . rawurlencode($list4) . "" . rawurlencode($inv) . "%0D%0A" . rawurlencode($list5) . "" . rawurlencode($cal) . "'>
                    <input class='button' type='submit' value='" . $mailbtn . "'>
                  </a>
                  <!-- Load copy function -->
