@@ -89,7 +89,7 @@ $html_content="<h1>" . $headl . "</h2>
                    . $list4 . " " . $inv . "\n"
                    . $list5 . " " . $cal . "\n</textarea><br>
                  <input id='copyconfinfo' class='button' type='submit' value='" . $cpbtnpre . "' onclick='PrintCopied();'>
-                 <a href='mailto:?subject=" . urlencode($invtx) . "&body=" . urlencode($list1) . "" . urlencode($name) . "\n" . urlencode($list2) . "" . urlencode($date) . "\n" . urlencode($list3) . "" . urlencode($time) . "\n" . urlencode($list4) . "" . urlencode($inv) . "\n" . urlencode($list5) . "" . urlencode($cal) . ""'>
+                 <a href='mailto:?subject=" . urlencode($invtx) . "&body=" . urlencode($list1) . "" . urlencode($name) . "\n" . urlencode($list2) . "" . urlencode($date) . "\n" . urlencode($list3) . "" . urlencode($time) . "\n" . urlencode($list4) . "" . urlencode($inv) . "\n" . urlencode($list5) . "" . urlencode($cal) . "'>
                    <input class='button' type='submit' value='" . $mailbtn . "'>
                  </a>
                  <!-- Load copy function -->
