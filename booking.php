@@ -21,7 +21,7 @@ include('conf/i18n.php');
 // process input
 $name = preg_replace('/[^A-Za-z0-9\ \-\_\.]/', "", $name); // clean up name
 $date = preg_replace('/[^0-9\.\-]/', "", $date); // clean up date
-$time = preg_replace('/[^0-9APM\.\:, "", $time); // clean up time
+$time = preg_replace('/[^0-9APM\.\:/', "", $time); // clean up time
 $tsta = strtotime("" . $date . " " . $time . "");
 $ctim = time();
 
