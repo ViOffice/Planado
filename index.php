@@ -30,6 +30,8 @@ $html_content="<h1>" . $indh1 . "</h1>
                    <input type='date' id='date' name='date'><br><br>
                    <label for='time'><strong>" . $indt3 . "</strong></label><br>
                    <input type='time' id='time' name='time'><br><br>
+                   <!--<label for='recev'><strong>" . $indt4 . "</strong></label><br>-->
+                   <input type='hidden' id='recev' name='recev' value='0'><br><br>
                    <input class='button' type='submit' value='" . $indb1 . "'>
                  </form> 
                  <h2>" . $indh2 ."</h2>
