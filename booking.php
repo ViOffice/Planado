@@ -7,13 +7,13 @@
 $name=$_GET['name'];
 $date=$_GET['date'];
 $time=$_GET['time'];
+$recev=$_GET['recev'];
 
 // Load required configs
 include('conf/common.php');
 
 // detect language
 include('lib/language.php');
-$lang=detect_language();
 
 // Load i18n strings
 include('conf/i18n.php');
@@ -21,7 +21,7 @@ include('conf/i18n.php');
 // process input
 $name = preg_replace('/[^A-Za-z0-9\ \-\_\.]/', "", $name); // clean up name
 $date = preg_replace('/[^0-9\.\-]/', "", $date); // clean up date
-$time = preg_replace('/[^0-9APM\.\:/', "", $time); // clean up time
+$time = preg_replace('/[^0-9APM\.\:]/', "", $time); // clean up time
 $tsta = strtotime("" . $date . " " . $time . "");
 $ctim = time();
 
@@ -44,8 +44,9 @@ if ($sqlcon->connect_error) {
 }
 
 // write to database (invite-id, admin-id, room-id, date, time)
-$sqlque = "INSERT INTO " . $sqltabl . " (iid, aid, rid, time)
-        VALUES (" . $ihash . "," . $ahash . "," . $rhash . "," . $tsta . ")";
+$sqlque = "INSERT INTO " . $sqltabl . " (iid, aid, rid, time, recev)
+        VALUES (" . $ihash . "," . $ahash . "," . $rhash . "," . $tsta . ","
+        . $recev . ")";
 
 // return HTML if creation was successful
 if ($sqlcon->query($sqlque) === TRUE) {
