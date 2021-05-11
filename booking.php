@@ -7,7 +7,7 @@
 $name=$_GET['name'];
 $date=$_GET['date'];
 $time=$_GET['time'];
-$recev=$_GET['recev'];
+//$recev=$_GET['recev'];
 
 // Load required configs
 include('conf/common.php');
@@ -44,9 +44,10 @@ if ($sqlcon->connect_error) {
 }
 
 // write to database (invite-id, admin-id, room-id, date, time)
-$sqlque = "INSERT INTO " . $sqltabl . " (iid, aid, rid, time, recev)
-        VALUES (" . $ihash . "," . $ahash . "," . $rhash . "," . $tsta . ","
-        . $recev . ")";
+//$sqlque = "INSERT INTO " . $sqltabl . " (iid, aid, rid, time, recev)
+//        VALUES (" . $ihash . "," . $ahash . "," . $rhash . "," . $tsta . ","
+//        . $recev . ")";
+$sqlque = "INSERT INTO " . $sqltabl . " (iid, aid, rid, time) VALUES (" . $ihash . "," . $ahash . "," . $rhash . "," . $tsta . ")";
 
 // return HTML if creation was successful
 if ($sqlcon->query($sqlque) === TRUE) {
