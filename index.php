@@ -16,14 +16,17 @@ include('conf/i18n.php');
 // Load HTML functions
 include('lib/html.php');
 
+// Create unique hash for current session
+$rand = mt_rand(); // random random between 0 and mt_getrandmax()
+
 // Create unique string for immediate room creation
-$string="" . $_SERVER['REQUEST_TIME_FLOAT'] . $_SERVER['HTTP_USER_AGENT'] . "";
+$string="" . time() . $rand . "";
 $roomid=hexdec( substr(md5($string), 0, 15) );
 
 // Create HTML Content
 $html_content="<h1>" . $indh1 . "</h1>
                <div class='justify-content-center'>
-                 <form action='booking.php'> 
+                 <form action='booking.php' method='POST'> 
                    <label for='name'><strong>" . $indt1 . "</strong></label><br>
                    <input type='text' id='name' name='name'><br><br>
                    <label for='date'><strong>" . $indt2 . "</strong></label><br>
@@ -32,6 +35,7 @@ $html_content="<h1>" . $indh1 . "</h1>
                    <input type='time' id='time' name='time'><br><br>
                    <!--<label for='recev'><strong>" . $indt4 . "</strong></label><br>-->
                    <input type='hidden' id='recev' name='recev' value='0'><br><br>
+                   <input type='hidden' name='rand' value='" . $rand . "'>
                    <input class='button' type='submit' value='" . $indb1 . "'>
                  </form> 
                  <h2>" . $indh2 ."</h2>

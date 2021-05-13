@@ -5,11 +5,18 @@
 
 // read input
 $ahash=$_GET['admin'];
+if ($ahash == "") {
+    $ahash=$_POST['admin'];
+}
 $ihash=$_GET['id'];
-$tsta=$_GET['tsta'];
-$name=$_GET['name'];
-$time=$_GET['time'];
-$date=$_GET['date'];
+if ($ihash == "") {
+    $ihash=$_POST['id'];
+}
+$tsta=$_POST['tsta'];
+$name=$_POST['name'];
+$time=$_POST['time'];
+$date=$_POST['date'];
+$recev=$_POST['recev'];
 
 // Load required configs
 include('conf/common.php');
@@ -64,8 +71,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
         // Create HTML Content
         $html_content="<h1>" . $adminh . "</h1>
                        <div class='justify-content-center'>
-                        <p>" . $ihash . "</p><br>
-                         <form action='admin.php'> 
+                         <form action='admin.php' method='POST'> 
                            <label for='name'><strong>" . $indt1 . "</strong></label><br>
                            <input type='text' id='name' name='name'><br><br>
                            <label for='date'><strong>" . $indt2 . "</strong></label><br>
@@ -75,6 +81,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                            <input class='button' type='submit' value='" . $adminb . "'>
                            <input type='hidden' name='id' value=" . $ihash . ">
                            <input type='hidden' name='admin' value=" . $ahash . ">
+                           <input type='hidden' name='recev' value=" . $recev . ">
                          </form> 
                      </div>";
         build_html($html_content, $admin_title, $admin_desc);
@@ -141,7 +148,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
     // Create HTML Content
     $html_content="<h1>" . $noidh . "</h1>
                    <div class='justify-content-center'>
-                     <form action='/admin.php'> 
+                     <form action='/admin.php' method='POST'> 
                        <label for='id'><strong>" . $list4 . "</strong></label><br>
                        <input type='text' id='id' name='id'><br><br>
                        <label for='admin'><strong>" . $list6 . "</strong></label><br>

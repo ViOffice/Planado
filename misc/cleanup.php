@@ -15,14 +15,33 @@ if ($sqlcon->connect_error) {
    die("Connection failed: " . $sqlcon->connect_error);
 }
 
-// extract admin-id and room-id from given invite-id
-$sqlque = "DELETE FROM " . $sqltabl . " WHERE time<" . $old . "";
-if ($sqlcon->query($sqlque) == TRUE) {
-    echo "OK!";
-} else {
-    echo "ERROR:" . $sqlcon->error;
+// extract invite-id and recurse-index for all "old" entries
+$sqlque = "SELECT iid, recev FROM " . $sqltabl . " WHERE time<" . $old . "";
+$sqlres = $sqlcon->query($sqlque)->fetch_assoc();
+
+// loop through all entries
+foreach ($sqlres as $res) {
+    $res['recev'] = $res['recev'] - 1;
+    if ($res['recev'] < 0) {
+        $sqlque = "DELETE FROM " . $sqltabl . " WHERE iid=" . $res['iid'] . "";
+        if ($sqlcon->query($sqlque) == TRUE) {
+            echo "OK!";
+        } else {
+            echo "ERROR:" . $sqlcon->error;
+        }
+    } else {
+        $sqlque = "UPDATE " . $sqltabl . " SET recev=" . $res['recev'] . 
+        ", time=" . time() + (24 * 60 * 60) . " WHERE iid=" . $res['iid'] .
+        ""; // FIXME: also update riid
+        if ($sqlcon->query($sqlque) == TRUE) {
+            echo "OK!";
+        } else {
+            echo "ERROR:" . $sqlcon->error;
+        }
+    }
 }
 
+// close database connection
 $conn->close();
 
 ?>
