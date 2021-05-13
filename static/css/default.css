@@ -45,7 +45,8 @@ html {
     margin-right: auto;
     display: block;
     text-align: center;
-    width: 350px;
+    min-width: 350px;
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,6 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .th {
     font-family: var(--head-font);
+    text-align:right;
 }
 
 td {
@@ -93,7 +95,9 @@ a:hover.highlight {
     font-weight: bold;
     display: inline-block;
     box-shadow: 2px 2px 4px #00000099;
-    transition-duration: .4s
+    transition-duration: .4s;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .button:hover {
@@ -102,7 +106,7 @@ a:hover.highlight {
 }
 
 .button:focus,.button:active,.button:visited {
-    color: var(--secondary);
-    background-color: var(--primarya);
-    border-color: var(--primary);
+    color: var(--tertiary);
+    background-color: var(--secondary);
+    border-color: var(--tertiary);
 }
