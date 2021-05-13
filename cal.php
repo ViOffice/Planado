@@ -7,15 +7,19 @@
 $name=$_GET['name'];
 $time=$_GET['time'];
 $id=$_GET['id'];
+$recev=$_GET['rec'];
+$rectype=$_GET['rtype'];
 
 // Load required configs
-include('conf/common.php');
+list($pwd) = preg_replace('/\/[^\/]+$/', "/", get_included_files());
+$conf_path = $pwd . "conf/common.php";
+include($conf_path);
 
 // process input
 $stime=date('His', $time); // start time
 $sdate=date('Ymd', $time); // start date
-$etime=date('His', strtotime('+1 hours', $time)); // end time (1 hour later)
 $edate=date('Ymd', strtotime('+1 hours', $time)); // end date (1 hour later)
+$etime=date('His', strtotime('+1 hours', $time)); // end time (1 hour later)
 $url="https://" . $idomain . "/inv.php?id=" . $id . "";
 $ical="Event_" . $time . "_" . $id . ".ics";
 
@@ -51,6 +55,10 @@ $tmp="DTEND:" . $edate . "T" . $etime . "\n";
 echo $tmp;
 $tmp="DTSTAMP:" . $cdate . "T" . $ctime . "\n";
 echo $tmp;
+if ($recev > 0) {
+    $tmp="RRULE:FREQ=" . strtoupper($rectype) . ";COUNT=" . ($recev + 1) . "\n";
+    echo $tmp;
+}
 echo "END:VEVENT\n";
 
 // Calendar Section

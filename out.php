@@ -7,23 +7,28 @@
 $room=$_GET['room'];
 
 // Load required configs
-include('conf/common.php');
+list($pwd) = preg_replace('/\/[^\/]+$/', "/", get_included_files());
+$conf_path = $pwd . "conf/common.php";
+include($conf_path);
 
 // detect language
-include('lib/language.php');
+$lang_path = $pwd . "lib/language.php";
+include($lang_path);
 $lang=detect_language();
 
 // Load i18n strings
-include('conf/i18n.php');
+$i18n_path = $pwd . "conf/i18n.php";
+include($i18n_path);
+ 
+// Load HTML functions
+$html_path = $pwd . "lib/html.php";
+include($html_path);
 
 // Do we Want to show the privacy policy?
 if ($privp == TRUE) {
 
     // Was a room-ID provided?
     if ($room > 0) {
-
-        // Load HTML functions
-        include('lib/html.php');
 
         // Create HTML Content
         $html_content="<h1>" . $privh . "</h1>
@@ -33,12 +38,20 @@ if ($privp == TRUE) {
                            <input class='button' type='submit' value='" . $privb . "'>
                          </a><br><br>
                        </div>";
+        if ($cleanup == "iframe") {
+            $html_content=$html_content . "<iframe src='misc/cleanup.php' style='width:0;height:0;border:0;display:none;'></iframe>";
+        }
         build_html($html_content, $priv_title, $priv_desc);
     } else {
         header("Location: /inv.php?error=true");
     }
     
 } else {
+    // Create HTML Content
+    if ($cleanup == "iframe") {
+        $html_content=$html_content . "<iframe src='misc/cleanup.php' style='width:0;height:0;border:0;display:none;'></iframe>";
+    }
+    build_html($html_content, "", "")
     header("Location: https://" . $jdomain . "/" . $room . "");
 }
 

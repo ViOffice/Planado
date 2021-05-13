@@ -8,23 +8,29 @@ $name=$_POST['name'];
 $date=$_POST['date'];
 $time=$_POST['time'];
 $recev=$_POST['recev'];
+$rectype=$_POST['rectype'];
 $rand=$_POST['rand'];
 
 // Load required configs
-include('conf/common.php');
+list($pwd) = preg_replace('/\/[^\/]+$/', "/", get_included_files());
+$conf_path = $pwd . "conf/common.php";
+include($conf_path);
 
 // detect language
-include('lib/language.php');
+$lang_path = $pwd . "lib/language.php";
+include($lang_path);
 $lang=detect_language();
 
 // Load i18n strings
-include('conf/i18n.php');
+$i18n_path = $pwd . "conf/i18n.php";
+include($i18n_path);
 
 // process input
 $name = preg_replace('/[^A-Za-z0-9\ \-\_\.]/', "", $name); // clean up name
 $date = preg_replace('/[^0-9\.\-]/', "", $date); // clean up date
 $time = preg_replace('/[^0-9APM\.\:]/', "", $time); // clean up time
 $recev = preg_replace('/[^0-9]/', "", $recev); // clean up recurring
+$rectype = preg_replace('/[^a-z]/', "", $rectype); // clean up recurring
 $rand = preg_replace('/[^0-9]/', "", $rand); // clean up random number
 $tsta = strtotime("" . $date . " " . $time . "");
 $ctim = time();
@@ -40,6 +46,9 @@ $rhash = hexdec( substr(sha1($string), 0, 15) ); // room ID
 $inv = "https://" . $idomain . "/inv.php?id=" . $ihash . "";
 $adm = "https://" . $idomain . "/admin.php?id=" . $ihash . "&admin=" . $ahash . "";
 $cal = "https://" . $idomain . "/cal.php?name=" . rawurlencode($name) . "&time=" . $tsta . "&id=" . $ihash . "";
+if ($recev > 0) {
+    $cal = "" . $cal . "&rec=" . $recev . "&rtype=" . $rectype . "";
+}
 
 // connect to database
 $sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass, $sqlname);
@@ -48,15 +57,16 @@ if ($sqlcon->connect_error) {
 }
 
 // write to database (invite-id, admin-id, room-id, date, time)
-$sqlque = "INSERT INTO " . $sqltabl . " (iid, aid, rid, time, recev)
+$sqlque = "INSERT INTO " . $sqltabl . " (iid, aid, rid, time, recev, rectype)
         VALUES (" . $ihash . "," . $ahash . "," . $rhash . "," . $tsta . ","
-        . $recev . ")";
+        . $recev . ",'" . $rectype . "')";
 
 // return HTML if creation was successful
 if ($sqlcon->query($sqlque) === TRUE) {
 
 // Load HTML functions
-include('lib/html.php');
+$html_path = $pwd . "lib/html.php";
+include($html_path);
 
 // Create HTML Content
 $html_content="<h1>" . $headl . "</h2>
@@ -113,5 +123,7 @@ build_html($html_content, $book_title, $book_desc);
   echo "Error: " . $sqlque . "<br>" . $sqlcon->error;
 }
 
-?>
+// Close database connection
+$sqlcon->close();
 
+?>

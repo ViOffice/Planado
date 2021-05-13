@@ -35,7 +35,8 @@ $sqlque = "CREATE TABLE " . $sqltabl . " (
              aid BIGINT,
              rid BIGINT,
              time BIGINT,
-             recev BIGINT)";
+             recev BIGINT,
+             rectype CHAR(16))";
 
 if ($sqlcon->query($sqlque) === TRUE) {
     echo "Table created successfully\n";

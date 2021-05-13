@@ -12,14 +12,18 @@ $error=$_GET['error'];
 $ctim=strtotime("now");
 
 // Load required configs
-include('conf/common.php');
+list($pwd) = preg_replace('/\/[^\/]+$/', "/", get_included_files());
+$conf_path = $pwd . "conf/common.php";
+include($conf_path);
 
 // detect language
-include('lib/language.php');
+$lang_path = $pwd . "lib/language.php";
+include($lang_path);
 $lang=detect_language();
 
 // Load i18n strings
-include('conf/i18n.php');
+$i18n_path = $pwd . "conf/i18n.php";
+include($i18n_path);
 
 // connect to database
 $sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass, $sqlname);
@@ -61,7 +65,8 @@ if ($ihash > 0) {
                 exit();
             } else {
                 // Load HTML functions
-                include('lib/html.php');
+                $html_path = $pwd . "lib/html.php";
+                include($html_path);
 
                 // Create HTML Content
                 $html_content="<meta http-equiv='refresh' content='30' > 
@@ -80,7 +85,8 @@ if ($ihash > 0) {
     }
 } else {
     // Load HTML functions
-    include('lib/html.php');
+    $html_path = $pwd . "lib/html.php";
+    include($html_path);
     
     // Create HTML Content
     $html_content="<h1>" . $noidh . "</h1>
@@ -92,5 +98,8 @@ if ($ihash > 0) {
                    </div>";
     build_html($html_content, $inv_title, $inv_desc);
 }
+
+// Close database connection
+$sqlcon->close();
 
 ?>

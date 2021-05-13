@@ -17,19 +17,25 @@ $name=$_POST['name'];
 $time=$_POST['time'];
 $date=$_POST['date'];
 $recev=$_POST['recev'];
+$rectype=$_POST['rectype'];
 
 // Load required configs
-include('conf/common.php');
+list($pwd) = preg_replace('/\/[^\/]+$/', "/", get_included_files());
+$conf_path = $pwd . "conf/common.php";
+include($conf_path);
 
 // detect language
-include('lib/language.php');
+$lang_path = $pwd . "lib/language.php";
+include($lang_path);
 $lang=detect_language();
 
 // Load i18n strings
-include('conf/i18n.php');
+$i18n_path = $pwd . "conf/i18n.php";
+include($i18n_path);
 
 // Load HTML functions
-include('lib/html.php');
+$html_path = $pwd . "lib/html.php";
+include($html_path);
 
 // process input
 $name = preg_replace('/[^A-Za-z0-9\ \-\_\.]/', "", $name); // clean up name
@@ -46,6 +52,9 @@ if ($ahash == "") $ahash = 0;
 $inv = "/inv.php?id=" . $ihash . "";
 $adm = "/admin.php?id=" . $ihash . "&admin=" . $ahash . "";
 $cal = "/cal.php?name=" . $ename . "&time=" . $tsta . "&id=" . $ihash . "";
+if ($recev > 0) {
+    $cal = "" . $cal . "&rec=" . $recev . "&rtype=" . $rectype . "";
+}
 
 // connect to database
 $sqlcon = new mysqli($sqlhost, $sqluser, $sqlpass, $sqlname);
@@ -54,7 +63,7 @@ if ($sqlcon->connect_error) {
 }
 
 // extract admin-id and time-stamp from given invite-id
-$sqlque = "SELECT aid, time FROM " . $sqltabl . " WHERE iid=" . $ihash . "";
+$sqlque = "SELECT aid, time, recev, rectype FROM " . $sqltabl . " WHERE iid=" . $ihash . "";
 $sqlres = $sqlcon->query($sqlque)->fetch_assoc();
 
 // if provided admin-id corresponds to the provided invite-id, we either show a
@@ -78,10 +87,16 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                            <input type='date' id='date' name='date' value='" . $odate . "' ><br><br>
                            <label for='time'><strong>" . $indt3 . "</strong></label><br>
                            <input type='time' id='time' name='time' value='" . $otime . "'><br><br>
+                           <label for='recev'><strong>" . $indt4 . "</strong></label><br>
+                           <input type='number' id='recev' name='recev' value='" . $sqlres['recev'] . "' style='width:5em;'>
+                           <select name='rectype' value='" . $sqlres['rectype'] . "'>
+                             <option value='daily'>" . $inrec1 . "</option>
+                             <option value='weekly'>" . $inrec2 . "</option>
+                             <option value='monthly'>" . $inrec3 . "</option>
+                           </select><br><br>
                            <input class='button' type='submit' value='" . $adminb . "'>
                            <input type='hidden' name='id' value=" . $ihash . ">
                            <input type='hidden' name='admin' value=" . $ahash . ">
-                           <input type='hidden' name='recev' value=" . $recev . ">
                          </form> 
                      </div>";
         build_html($html_content, $admin_title, $admin_desc);
@@ -157,5 +172,8 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                    </div>";
     build_html($html_content, $admin_title, $admin_desc);
 }
+
+// Close database connection
+$sqlcon->close();
 
 ?>

@@ -4,7 +4,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 // Load required configs
-include('../conf/common.php');
+list($pwd) = preg_replace('/\/[^\/]+$/', "/", get_included_files());
+$conf = $pwd . "../conf/common.php";
+include($conf);
 
 // define old timestamp:
 $old=time() - (24 * 60 * 60 * $delete_after_days);
@@ -16,32 +18,44 @@ if ($sqlcon->connect_error) {
 }
 
 // extract invite-id and recurse-index for all "old" entries
-$sqlque = "SELECT iid, recev FROM " . $sqltabl . " WHERE time<" . $old . "";
+$sqlque = "SELECT iid, recev, rectype, time FROM " . $sqltabl . " WHERE time<" . $old . "";
 $sqlres = $sqlcon->query($sqlque)->fetch_assoc();
 
 // loop through all entries
+if (is_array($sqlres)) {
 foreach ($sqlres as $res) {
-    $res['recev'] = $res['recev'] - 1;
-    if ($res['recev'] < 0) {
+    // update timestamps for recurring events
+    if ($res['recev'] > 0) {
+        if ($res['rectype'] == "daily") $typestep = 1;
+        if ($res['rectype'] == "weekly") $typestep = 7;
+        if ($res['rectype'] == "monthly") $typestep = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
+        // timestamp of next event
+        $next = $res['time'] + ($typestep * 24 * 60 * 60);
+        // Update recurrances
+        $reccurrings = $res['recev'] - 1;
+        // Update database
+        $sqlque = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . " WHERE iid=" . $res['iid'];
+        if ($sqlcon->query($sqlque) == TRUE) {
+            echo "OK!\n";
+        } else {
+            echo "ERROR: " . $sqlcon->error . "\n";
+        }
+    }
+    // delete old non-recurring events
+    if ($res['recev'] <= 0) {
         $sqlque = "DELETE FROM " . $sqltabl . " WHERE iid=" . $res['iid'] . "";
         if ($sqlcon->query($sqlque) == TRUE) {
-            echo "OK!";
+            echo "OK!\n";
         } else {
-            echo "ERROR:" . $sqlcon->error;
-        }
-    } else {
-        $sqlque = "UPDATE " . $sqltabl . " SET recev=" . $res['recev'] . 
-        ", time=" . time() + (24 * 60 * 60) . " WHERE iid=" . $res['iid'] .
-        ""; // FIXME: also update riid
-        if ($sqlcon->query($sqlque) == TRUE) {
-            echo "OK!";
-        } else {
-            echo "ERROR:" . $sqlcon->error;
+            echo "ERROR: " . $sqlcon->error . "\n";
         }
     }
 }
+} else {
+    echo "Nothing to do\n";
+}
 
 // close database connection
-$conn->close();
+$sqlcon->close();
 
 ?>

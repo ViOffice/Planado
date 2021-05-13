@@ -4,17 +4,22 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 // Load required configs
-include('conf/common.php');
+list($pwd) = preg_replace('/\/[^\/]+$/', "/", get_included_files());
+$conf_path = $pwd . "conf/common.php";
+include($conf_path);
 
 // detect language
-include('lib/language.php');
+$lang_path = $pwd . "lib/language.php";
+include($lang_path);
 $lang=detect_language();
 
 // Load i18n strings
-include('conf/i18n.php');
+$i18n_path = $pwd . "conf/i18n.php";
+include($i18n_path);
 
 // Load HTML functions
-include('lib/html.php');
+$html_path = $pwd . "lib/html.php";
+include($html_path);
 
 // Create unique hash for current session
 $rand = mt_rand(); // random random between 0 and mt_getrandmax()
@@ -28,13 +33,18 @@ $html_content="<h1>" . $indh1 . "</h1>
                <div class='justify-content-center'>
                  <form action='booking.php' method='POST'> 
                    <label for='name'><strong>" . $indt1 . "</strong></label><br>
-                   <input type='text' id='name' name='name'><br><br>
+                   <input type='text' id='name' name='name' required='true' maxlength='100'><br><br>
                    <label for='date'><strong>" . $indt2 . "</strong></label><br>
-                   <input type='date' id='date' name='date'><br><br>
+                   <input type='date' id='date' name='date' required='true'><br><br>
                    <label for='time'><strong>" . $indt3 . "</strong></label><br>
-                   <input type='time' id='time' name='time'><br><br>
-                   <!--<label for='recev'><strong>" . $indt4 . "</strong></label><br>-->
-                   <input type='hidden' id='recev' name='recev' value='0'><br><br>
+                   <input type='time' id='time' name='time' required='true'><br><br>
+                   <label for='recev'><strong>" . $indt4 . "</strong></label><br>
+                   <input type='number' id='recev' name='recev' value='0' style='width:5em;'>
+                   <select name='rectype'>
+                     <option value='daily'>" . $inrec1 . "</option>
+                     <option value='weekly'>" . $inrec2 . "</option>
+                     <option value='monthly'>" . $inrec3 . "</option>
+                   </select><br><br>
                    <input type='hidden' name='rand' value='" . $rand . "'>
                    <input class='button' type='submit' value='" . $indb1 . "'>
                  </form> 
