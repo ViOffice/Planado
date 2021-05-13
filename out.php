@@ -47,11 +47,6 @@ if ($privp == TRUE) {
     }
     
 } else {
-    // Create HTML Content
-    if ($cleanup == "iframe") {
-        $html_content=$html_content . "<iframe src='misc/cleanup.php' style='width:0;height:0;border:0;display:none;'></iframe>";
-    }
-    build_html($html_content, "", "")
     header("Location: https://" . $jdomain . "/" . $room . "");
 }
 
