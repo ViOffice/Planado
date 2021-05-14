@@ -18,7 +18,7 @@ if ($sqlcon->connect_error) {
 }
 
 // extract invite-id and recurse-index for all "old" entries
-$sqlque = "SELECT iid, recev, rectype, time FROM " . $sqltabl . " WHERE time<" . $old . "";
+$sqlque = "SELECT iid, rid, recev, rectype, time FROM " . $sqltabl . " WHERE time<" . $old . "";
 //$sqlres = $sqlcon->query($sqlque)->fetch_assoc();
 
 // loop through all entries
@@ -38,8 +38,11 @@ while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
         $next = $res['time'] + ($typestep * 24 * 60 * 60);
         // Update recurrances
         $recurrings = $res['recev'] - 1;
+        // Update Room-ID
+        $string = $res['rid'] . $next . mt_rand();
+        $newroom = hexdec( substr(sha1($string), 0, 15) );
         // Update database
-        $sqlque2 = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . " WHERE iid=" . $res['iid'];
+        $sqlque2 = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . ", rid=" . $newroom . " WHERE iid=" . $res['iid'];
         if ($sqlcon->query($sqlque2) == TRUE) {
             echo "OK! (Update)\n";
         } else {
