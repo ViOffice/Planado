@@ -23,7 +23,7 @@ $sqlque = "SELECT iid, recev, rectype, time FROM " . $sqltabl . " WHERE time<" .
 
 // loop through all entries
 if (is_array($sqlres)) {
-    while ($res = $sqlcon->query($sqlque)_>fetch_assoc()) {
+    while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
         // update timestamps for recurring events
         if ($res['recev'] > 0) {
             if ($res['rectype'] == "daily") {
