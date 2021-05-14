@@ -26,9 +26,16 @@ if (is_array($sqlres)) {
 foreach ($sqlres as $res) {
     // update timestamps for recurring events
     if ($res['recev'] > 0) {
-        if ($res['rectype'] == "daily") $typestep = 1;
-        if ($res['rectype'] == "weekly") $typestep = 7;
-        if ($res['rectype'] == "monthly") $typestep = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
+        if ($res['rectype'] == "daily") {
+            $typestep = 1;
+        } elseif ($res['rectype'] == "weekly") {
+            $typestep = 7;
+        } elseif ($res['rectype'] == "monthly") {
+            $typestep = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
+        } else {
+            $typestep = 0;
+        }
+
         // timestamp of next event
         $next = $res['time'] + ($typestep * 24 * 60 * 60);
         // Update recurrances
