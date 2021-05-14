@@ -22,44 +22,40 @@ $sqlque = "SELECT iid, recev, rectype, time FROM " . $sqltabl . " WHERE time<" .
 //$sqlres = $sqlcon->query($sqlque)->fetch_assoc();
 
 // loop through all entries
-if (is_array($sqlres)) {
-    while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
-        // update timestamps for recurring events
-        if ($res['recev'] > 0) {
-            if ($res['rectype'] == "daily") {
-                $typestep = 1;
-            } elseif ($res['rectype'] == "weekly") {
-                $typestep = 7;
-            } elseif ($res['rectype'] == "monthly") {
-                $typestep = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
-            } else {
-                $typestep = 0;
-            }
-
-            // timestamp of next event
-            $next = $res['time'] + ($typestep * 24 * 60 * 60);
-            // Update recurrances
-            $reccurrings = $res['recev'] - 1;
-            // Update database
-            $sqlque = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . " WHERE iid=" . $res['iid'];
-            if ($sqlcon->query($sqlque) == TRUE) {
-                echo "OK!\n";
-            } else {
-                echo "ERROR: " . $sqlcon->error . "\n";
-            }
+while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
+    // update timestamps for recurring events
+    if ($res['recev'] > 0) {
+        if ($res['rectype'] == "daily") {
+            $typestep = 1;
+        } elseif ($res['rectype'] == "weekly") {
+            $typestep = 7;
+        } elseif ($res['rectype'] == "monthly") {
+            $typestep = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
+        } else {
+            $typestep = 0;
         }
-        // delete old non-recurring events
-        if ($res['recev'] <= 0) {
-            $sqlque = "DELETE FROM " . $sqltabl . " WHERE iid=" . $res['iid'] . "";
-            if ($sqlcon->query($sqlque) == TRUE) {
-                echo "OK!\n";
-            } else {
-                echo "ERROR: " . $sqlcon->error . "\n";
-            }
+
+        // timestamp of next event
+        $next = $res['time'] + ($typestep * 24 * 60 * 60);
+        // Update recurrances
+        $reccurrings = $res['recev'] - 1;
+        // Update database
+        $sqlque = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . " WHERE iid=" . $res['iid'];
+        if ($sqlcon->query($sqlque) == TRUE) {
+            echo "OK!\n";
+        } else {
+            echo "ERROR: " . $sqlcon->error . "\n";
         }
     }
-} else {
-    echo "Nothing to do\n";
+    // delete old non-recurring events
+    if ($res['recev'] <= 0) {
+        $sqlque = "DELETE FROM " . $sqltabl . " WHERE iid=" . $res['iid'] . "";
+        if ($sqlcon->query($sqlque) == TRUE) {
+            echo "OK!\n";
+        } else {
+            echo "ERROR: " . $sqlcon->error . "\n";
+        }
+    }
 }
 
 // close database connection
