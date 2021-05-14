@@ -37,7 +37,7 @@ while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
         // timestamp of next event
         $next = $res['time'] + ($typestep * 24 * 60 * 60);
         // Update recurrances
-        $reccurrings = $res['recev'] - 1;
+        $recurrings = $res['recev'] - 1;
         // Update database
         $sqlque2 = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . " WHERE iid=" . $res['iid'];
         if ($sqlcon->query($sqlque2) == TRUE) {
