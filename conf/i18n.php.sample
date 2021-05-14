@@ -63,10 +63,10 @@ if ($lang == "de") {
     $indt1="Name of Conference";
     $indt2="Date";
     $indt3="Time";
-    $indt4="Wiederholungen";
-    $inrec1="täglich";
-    $inrec2="wöchentlich";
-    $inrec3="monatlich";
+    $indt4="Recurrances";
+    $inrec1="daily";
+    $inrec2="weekly";
+    $inrec3="monthly";
     $indb1="Book room";
     $indb2="Start room";
     // inv.php
