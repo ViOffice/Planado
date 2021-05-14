@@ -1,6 +1,6 @@
 # Planado
 
-[![reuse compliant](https://reuse.software/badge/reuse-compliant.svg)](https://reuse.software/) [![Hosted on Codeberg](https://img.shields.io/badge/Codeberg-Main%20Repository-blue.svg)](https://codeberg.org/ViOffice/Planado) [![Github Mirror](https://img.shields.io/badge/Github-Mirror-blue.svg)](https://github.com/ViOffice/Planado) [![Latest Release](https://img.shields.io/badge/Latest-0.0.2-green.svg)](https://codeberg.org/ViOffice/Planado/releases/tag/0.0.2)
+[![reuse compliant](https://reuse.software/badge/reuse-compliant.svg)](https://reuse.software/) [![Hosted on Codeberg](https://img.shields.io/badge/Codeberg-Main%20Repository-blue.svg)](https://codeberg.org/ViOffice/Planado) [![Github Mirror](https://img.shields.io/badge/Github-Mirror-blue.svg)](https://github.com/ViOffice/Planado) [![Latest Release](https://img.shields.io/badge/Latest-0.1.0-green.svg)](https://codeberg.org/ViOffice/Planado/releases/tag/0.1.0)
 
 > Planning and Room-Reservation tool for Jitsi-Meet and ViOffice Conference. Live Version at https://planado.vioffice.de
 
@@ -86,6 +86,21 @@ sudo cp -r ../Planado /var/www/html/planado
 curl http://localhost/planado/misc/tests.php?tests=all
 > OK!
 ```
+
+6. Optional: Let Cron do some automated cleanup of rooms and recurring events:
+
+```
+crontab -u www-data -e
+```
+
+the entry should look similar to this (change the directory path accordingly):
+
+```
+0 * * * * php /var/www/planado/misc/cleanup.php
+```
+
+This will run the cleanup-script every hour, even if nobody is visiting your
+Planado instance.
 
 ## Maintainers
 
