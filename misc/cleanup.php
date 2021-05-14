@@ -34,24 +34,23 @@ while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
         } else {
             $typestep = 0;
         }
-
         // timestamp of next event
         $next = $res['time'] + ($typestep * 24 * 60 * 60);
         // Update recurrances
         $reccurrings = $res['recev'] - 1;
         // Update database
-        $sqlque = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . " WHERE iid=" . $res['iid'];
-        if ($sqlcon->query($sqlque) == TRUE) {
-            echo "OK!\n";
+        $sqlque2 = "UPDATE " . $sqltabl . " SET recev=" . $recurrings . ", time=" . $next . " WHERE iid=" . $res['iid'];
+        if ($sqlcon->query($sqlque2) == TRUE) {
+            echo "OK! (Update)\n";
         } else {
             echo "ERROR: " . $sqlcon->error . "\n";
         }
     }
     // delete old non-recurring events
     if ($res['recev'] <= 0) {
-        $sqlque = "DELETE FROM " . $sqltabl . " WHERE iid=" . $res['iid'] . "";
-        if ($sqlcon->query($sqlque) == TRUE) {
-            echo "OK!\n";
+        $sqlque2 = "DELETE FROM " . $sqltabl . " WHERE iid=" . $res['iid'] . "";
+        if ($sqlcon->query($sqlque2) == TRUE) {
+            echo "OK (Delete)!\n";
         } else {
             echo "ERROR: " . $sqlcon->error . "\n";
         }
