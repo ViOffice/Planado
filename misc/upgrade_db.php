@@ -72,7 +72,7 @@ while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
     $interval = preg_replace('/[^0-9]/', "", $res['rectype']);
     if ($interval == "") {
         $res['rectype'] = $res['rectype'] . "1";
-        $sqlque2 = "UPDATE " . $sqltabl . " SET rectype=" . $res['rectype'] . " WHERE iid=" . $res['iid'];
+        $sqlque2 = "UPDATE " . $sqltabl . " SET rectype='" . $res['rectype'] . "' WHERE iid=" . $res['iid'];
         if ($sqlcon->query($sqlque2) == TRUE) {
             echo "Update rectype: OK\n";
         } else {
