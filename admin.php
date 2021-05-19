@@ -62,8 +62,6 @@ if ($recev > 0) {
     }
 }
 
-
-
 // prepare output
 $inv = "/inv.php?id=" . $ihash . "";
 $adm = "/admin.php?id=" . $ihash . "&admin=" . $ahash . "";
