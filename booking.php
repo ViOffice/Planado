@@ -113,12 +113,12 @@ $html_content="<h1>" . $headl . "</h2>
                  </table>
                  <textarea style='display:none;' id='copythis'>" . $invtx . "\n"
                    . $list1 . " " . $name . "\n"
-                   . $list2 . " " . $date . "\n"
+                   . $list2 . " " . $date . " (" . $recurring . ")\n"
                    . $list3 . " " . $time . "\n"
                    . $list4 . " " . $inv . "\n"
                    . $list5 . " " . $cal . "\n</textarea><br>
                  <input id='copyconfinfo' class='button' type='submit' value='" . $cpbtnpre . "' onclick='PrintCopied();'>
-                 <a href='mailto:?subject=" . rawurlencode($invtx) . "&body=" . rawurlencode($list1) . "" . rawurlencode($name) . "%0D%0A" . rawurlencode($list2) . "" . rawurlencode($date) . "%0D%0A" . rawurlencode($list3) . "" . rawurlencode($time) . "%0D%0A" . rawurlencode($list4) . "" . rawurlencode($inv) . "%0D%0A" . rawurlencode($list5) . "" . rawurlencode($cal) . "'>
+                 <a href='mailto:?subject=" . rawurlencode($invtx) . "&body=" . rawurlencode($list1) . "" . rawurlencode($name) . "%0D%0A" . rawurlencode($list2) . "" . rawurlencode($date) . "%20%28" . $recurring . "%29%0D%0A" . rawurlencode($list3) . "" . rawurlencode($time) . "%0D%0A" . rawurlencode($list4) . "" . rawurlencode($inv) . "%0D%0A" . rawurlencode($list5) . "" . rawurlencode($cal) . "'>
                    <input class='button' type='submit' value='" . $mailbtn . "'>
                  </a>
                  <!-- Load copy function -->
