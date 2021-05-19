@@ -16,8 +16,10 @@ if ($lang == "de") {
     $indt3="Uhrzeit";
     $indt4="Wiederholungen";
     $inrec1="täglich";
-    $inrec2="wöchentlich";
-    $inrec3="monatlich";
+    $inrec2="jede Woche";
+    $inrec3="jede 2. Woche";
+    $inrec4="jede 4. Woche";
+    $inrec5="monatlich";
     $indb1="Raum buchen";
     $indb2="Raum öffnen";
     // inv.php
@@ -65,8 +67,10 @@ if ($lang == "de") {
     $indt3="Time";
     $indt4="Recurrances";
     $inrec1="daily";
-    $inrec2="weekly";
-    $inrec3="monthly";
+    $inrec2="every week";
+    $inrec3="every two weeks";
+    $inrec4="every four weeks";
+    $inrec5="monthly";
     $indb1="Book room";
     $indb2="Start room";
     // inv.php
