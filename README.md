@@ -102,6 +102,27 @@ the entry should look similar to this (change the directory path accordingly):
 This will run the cleanup-script every hour, even if nobody is visiting your
 Planado instance.
 
+## Version-Upgrade
+
+If you are running Planado straight from `main` branch:
+
+```
+git pull
+php ./misc/upgrade_db.php
+```
+
+If you are running from a specific release:
+
+```
+git checkout main
+git pull
+git checkout 0.1.0
+php ./misc/upgrade_db.php
+```
+
+Either way, please take a look at the changelog from last commits or releases
+and update your configurations and translations in `conf/` accordingly.
+
 ## Maintainers
 
 * [Jan Weymeirsch](https://jan.weymeirs.ch)
