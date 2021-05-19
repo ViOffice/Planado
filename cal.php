@@ -56,7 +56,9 @@ echo $tmp;
 $tmp="DTSTAMP:" . $cdate . "T" . $ctime . "\n";
 echo $tmp;
 if ($recev > 0) {
-    $tmp="RRULE:FREQ=" . strtoupper($rectype) . ";COUNT=" . ($recev + 1) . "\n";
+    $recinte = preg_replace('/[^0-9]/', "", $rectype);
+    $rectype = preg_replace('/[^a-z]/', "", $rectype);
+    $tmp="RRULE:FREQ=" . strtoupper($rectype) . ";INTERVAL=" . $recinte . ";COUNT=" . ($recev + 1) . "\n";
     echo $tmp;
 }
 echo "END:VEVENT\n";

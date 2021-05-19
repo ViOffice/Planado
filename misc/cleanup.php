@@ -25,12 +25,17 @@ $sqlque = "SELECT iid, rid, recev, rectype, time FROM " . $sqltabl . " WHERE tim
 while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
     // update timestamps for recurring events
     if ($res['recev'] > 0) {
+        $recinte = preg_replace('/[^0-9]/', "", $res['rectype']);
+        if ($recinte == "") {
+            $recinte = 1;
+        }
+        $res['rectype'] = preg_replace('/[^a-z]/', "", $res['rectype']);
         if ($res['rectype'] == "daily") {
-            $typestep = 1;
+            $typestep = 1 * $recinte;
         } elseif ($res['rectype'] == "weekly") {
-            $typestep = 7;
+            $typestep = 7 * $recinte;
         } elseif ($res['rectype'] == "monthly") {
-            $typestep = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
+            $typestep = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")) * $recinte;
         } else {
             $typestep = 0;
         }
