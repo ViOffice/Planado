@@ -104,9 +104,11 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                            <label for='recev'><strong>" . $indt4 . "</strong></label><br>
                            <input type='number' id='recev' name='recev' value='" . $sqlres['recev'] . "' style='width:5em;'>
                            <select name='rectype' value='" . $sqlres['rectype'] . "'>
-                             <option value='daily'>" . $inrec1 . "</option>
-                             <option value='weekly'>" . $inrec2 . "</option>
-                             <option value='monthly'>" . $inrec3 . "</option>
+                             <option value='1daily'>" . $inrec1 . "</option>
+                             <option value='1weekly'>" . $inrec2 . "</option>
+                             <option value='2weekly'>" . $inrec3 . "</option>
+                             <option value='4weekly'>" . $inrec4 . "</option>
+                             <option value='1monthly'>" . $inrec5 . "</option>
                            </select><br><br>
                            <input class='button' type='submit' value='" . $adminb . "'>
                            <input type='hidden' name='id' value=" . $ihash . ">
