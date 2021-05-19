@@ -66,7 +66,7 @@ if ($sqlcon->query($sqlque) == TRUE) {
 }
 
 // 3. Make sure rectypes have intervalls
-$sqlque = "SELECT iid, rectype FROM " . $sqlque;
+$sqlque = "SELECT iid, rectype FROM " . $sqltabl;
 // loop through all entries
 while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
     // update timestamps for recurring events
