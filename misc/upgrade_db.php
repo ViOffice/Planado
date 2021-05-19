@@ -68,13 +68,13 @@ if ($sqlcon->query($sqlque) == TRUE) {
 // 3. Make sure rectypes have intervalls
 $sqlque = "SELECT iid, rectype FROM " . $sqltabl;
 // loop through all entries
-foreach ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
+while ($res = $sqlcon->query($sqlque)->fetch_assoc()) {
     // update timestamps for recurring events
     $interval = preg_replace('/[^0-9]/', "", $res['rectype']);
     if ($interval == "") {
         $res['rectype'] = $res['rectype'] . "1";
         $sqlque2 = "UPDATE " . $sqltabl . " SET rectype=" . $res['rectype'] . " WHERE iid=" . $res['iid'];
-        if ($sqlcon->query($sqlque) == TRUE) {
+        if ($sqlcon->query($sqlque2) == TRUE) {
             echo "Update rectype: OK\n";
         } else {
             die("Update rectype: " . $sqlcon->error);
