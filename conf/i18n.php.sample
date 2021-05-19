@@ -15,6 +15,7 @@ if ($lang == "de") {
     $indt2="Datum";
     $indt3="Uhrzeit";
     $indt4="Wiederholungen";
+    $inrec0="einmalig";
     $inrec1="täglich";
     $inrec2="jede Woche";
     $inrec3="jede 2. Woche";
@@ -66,6 +67,7 @@ if ($lang == "de") {
     $indt2="Date";
     $indt3="Time";
     $indt4="Recurrances";
+    $inrec0="non-recurring";
     $inrec1="daily";
     $inrec2="every week";
     $inrec3="every two weeks";

@@ -34,6 +34,20 @@ $rectype = preg_replace('/[^a-z]/', "", $rectype); // clean up recurring
 $rand = preg_replace('/[^0-9]/', "", $rand); // clean up random number
 $tsta = strtotime("" . $date . " " . $time . "");
 $ctim = time();
+$recurring = $inrec0;
+if ($recev > 0) {
+    if ($rectype == "1daily") {
+        $recurring = $inrec1 . ", " . $recev . "x";
+    } elseif ($rectype == "1weekly") {
+        $recurring = $inrec2 . ", " . $recev . "x";
+    } elseif ($rectype == "2weekly") {
+        $recurring = $inrec3 . ", " . $recev . "x";
+    } elseif ($rectype == "4weekly") {
+        $recurring = $inrec4 . ", " . $recev . "x";
+    } elseif ($rectype == "1monthly") {
+        $recurring = $inrec5 . ", " . $recev . "x";
+    }
+}
 
 // create hashes
 $string = $name . $tsta . $rand;
@@ -78,7 +92,7 @@ $html_content="<h1>" . $headl . "</h2>
                    </tr>
                    <tr>
                      <td class='th'><strong>" . $list2 . "</strong></td>
-                     <td>" . $date . "</td>
+                     <td>" . $date . " (". $recurring . ")</td>
                    </tr>
                    <tr>
                      <td class='th'><strong>" . $list3 . "</strong></td>

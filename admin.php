@@ -47,6 +47,22 @@ if ($date != "" || $time != "") {
 }
 if ($ihash == "") $ihash = 0;
 if ($ahash == "") $ahash = 0;
+$recurring = $inrec0;
+if ($recev > 0) {
+    if ($rectype == "1daily") {
+        $recurring = $inrec1 . ", " . $recev . "x";
+    } elseif ($rectype == "1weekly") {
+        $recurring = $inrec2 . ", " . $recev . "x";
+    } elseif ($rectype == "2weekly") {
+        $recurring = $inrec3 . ", " . $recev . "x";
+    } elseif ($rectype == "4weekly") {
+        $recurring = $inrec4 . ", " . $recev . "x";
+    } elseif ($rectype == "1monthly") {
+        $recurring = $inrec5 . ", " . $recev . "x";
+    }
+}
+
+
 
 // prepare output
 $inv = "/inv.php?id=" . $ihash . "";
@@ -121,7 +137,7 @@ if ($sqlres["aid"] == $ahash && $sqlres["aid"] != "") {
                    </tr>
                    <tr>
                      <td class='th'><strong>" . $list2 . "</strong></td>
-                     <td>" . $date . "</td>
+                     <td>" . $date . " (" . $recurring . ")</td>
                    </tr>
                    <tr>
                      <td class='th'><strong>" . $list3 . "</strong></td>
